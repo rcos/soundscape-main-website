@@ -16,14 +16,14 @@ import FEATURES_2 from '@/images/Features_2.png'
 import FEATURES_3 from '@/images/Features_3.png'
 import ReactPlayer from 'react-player'
 
-const logoSrc: string = (LOGO as string).toString() ;
-const adidasSrc: string = Adidas_Logo.toString() ;
-const HERO_BG_SRC: string = HERO_BG.toString();
-const IPHONE_1_SRC: string = IPHONE_1.toString();
-const GROUP_INTRO_SRC: string = GROUP_INTRO.toString();
-const FEATURES_1_SRC: string = FEATURES_1.toString();
-const FEATURES_2_SRC: string = FEATURES_2.toString();
-const FEATURES_3_SRC: string = FEATURES_3.toString();
+const logoSrc: string = (LOGO as string) ;
+const adidasSrc: string = Adidas_Logo ;
+const HERO_BG_SRC: string = HERO_BG;
+const IPHONE_1_SRC: string = IPHONE_1;
+const GROUP_INTRO_SRC: string = GROUP_INTRO;
+const FEATURES_1_SRC: string = FEATURES_1;
+const FEATURES_2_SRC: string = FEATURES_2;
+const FEATURES_3_SRC: string = FEATURES_3;
 
 
 
