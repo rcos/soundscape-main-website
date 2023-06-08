@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Image from 'next/image'
+import type { StaticImageData } from "next/image"
 import { api } from "~/utils/api";
 
 import LOGO from '@/images/Soundscape_Logo.svg'
@@ -14,6 +15,16 @@ import FEATURES_1 from '@/images/Features_1.png'
 import FEATURES_2 from '@/images/Features_2.png'
 import FEATURES_3 from '@/images/Features_3.png'
 import ReactPlayer from 'react-player'
+
+const logoSrc: string = (LOGO as string).toString() ;
+const adidasSrc: string = Adidas_Logo.toString() ;
+const HERO_BG_SRC: string = HERO_BG.toString();
+const IPHONE_1_SRC: string = IPHONE_1.toString();
+const GROUP_INTRO_SRC: string = GROUP_INTRO.toString();
+const FEATURES_1_SRC: string = FEATURES_1.toString();
+const FEATURES_2_SRC: string = FEATURES_2.toString();
+const FEATURES_3_SRC: string = FEATURES_3.toString();
+
 
 
 const Home: NextPage = () => {
@@ -39,7 +50,7 @@ const Home: NextPage = () => {
       {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
         <header className="flex h-header w-full fixed top-0 left-0 z-50 px-16 py-4 items-center justify-between bg-soundscape-blue-bg "> 
           <div className="flex h-full w-auto">
-            <Image className="h-full w-auto" src={LOGO as ( HTMLElement & SVGElement )} height={0} width={0} alt=''/>
+            <Image className="h-full w-auto" src={logoSrc} height={0} width={0} alt=''/>
             <div className="flex flex-col w-auto px-4">
               <h1 className="w-full text-center text-soundscape-white text-2xl">Soundscape</h1>
               <h5 className="w-full text-center text-soundscape-white text-sm">for Everyone</h5>
@@ -57,7 +68,7 @@ const Home: NextPage = () => {
         </header>
       {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
         <div className='flex flex-col h-main-hero w-full relative justify-between'>
-          <Image className="absolute h-full object-right-top object-cover z-10" src={HERO_BG as ( HTMLElement & SVGElement )} height={0} width={0} alt=''/>
+          <Image className="absolute h-full object-right-top object-cover z-10" src={HERO_BG_SRC} height={0} width={0} alt=''/>
           <div className="flex flex-col z-30 w-[66vw] gap-6 mt-32 ml-20">
               <h2 className="w-full text-left text-soundscape-white text-hero-title font-bold">Soundscape for Everyone</h2>
               <p className="font-work-sans font-normal w-full text-left text-soundscape-white text-3xl">Explore, discover, and have fun with<br/> your own 3D sound map of the word!</p>
@@ -65,10 +76,10 @@ const Home: NextPage = () => {
           </div>
 
           <div className="flex flex-row z-30 w-auto h-auto py-8 ml-20 gap-16">
-            <Image className="h-20 w-auto" src={Adidas_Logo  as ( HTMLElement & SVGElement )} height={0} width={0} alt=''/>
-            <Image className="h-20 w-auto" src={Adidas_Logo  as ( HTMLElement & SVGElement )} height={0} width={0} alt=''/>
-            <Image className="h-20 w-auto" src={Adidas_Logo  as ( HTMLElement & SVGElement )} height={0} width={0} alt=''/>
-            <Image className="h-20 w-auto" src={Adidas_Logo  as ( HTMLElement & SVGElement )} height={0} width={0} alt=''/>
+            <Image className="h-20 w-auto" src={adidasSrc} height={0} width={0} alt=''/>
+            <Image className="h-20 w-auto" src={adidasSrc} height={0} width={0} alt=''/>
+            <Image className="h-20 w-auto" src={adidasSrc} height={0} width={0} alt=''/>
+            <Image className="h-20 w-auto" src={adidasSrc} height={0} width={0} alt=''/>
           </div>
 
         </div>
@@ -77,7 +88,7 @@ const Home: NextPage = () => {
           <h2 className="section-title-blue w-fit bg-transparent py-2 font-bold text-soundscape-blue text-3xl ">What is Soundscape</h2>
           <div className="flex flex-row w-full h-auto px-20">
             <div className="flex flex-row w-1/2 h-auto py-12">
-              <Image className="h-phone w-auto" src={IPHONE_1  as ( HTMLElement & SVGElement )} height={0} width={0} alt=''/>
+              <Image className="h-phone w-auto" src={IPHONE_1_SRC} height={0} width={0} alt=''/>
               <div className="flex flex-col px-8 py-8 gap-6">
                 <h4 className="w-fit bg-transparent py-2 font-semibold text-soundscape-orange text-xl" >Spatial Audio Technology</h4>
                 {/** mr-8 seemed to flow better */}
@@ -85,7 +96,7 @@ const Home: NextPage = () => {
               </div>
             </div>
             <div className="flex flex-row w-1/2 h-auto py-12">
-            <Image className="h-phone w-auto" src={IPHONE_1  as ( HTMLElement & SVGElement )} height={0} width={0} alt=''/>
+            <Image className="h-phone w-auto" src={IPHONE_1_SRC} height={0} width={0} alt=''/>
               <div className="flex flex-col px-8 py-8 gap-6">
                 <h4 className="w-fit bg-transparent py-2 font-semibold text-soundscape-orange text-xl" >Intuitive way to works</h4>
                 {/** mr-8 seemed to flow better */}
@@ -98,7 +109,7 @@ const Home: NextPage = () => {
         <div className="flex flex-col w-full h-auto bg-soundscape-white py-28 px-20">
           <div className="flex flex-row w-full h-auto gap-10">
             <div className="w-1/2">
-              <Image className="h-section-img w-auto rounded-section-image" src={GROUP_INTRO as ( HTMLElement & SVGElement )} height={0} width={0} alt=''/>
+              <Image className="h-section-img w-auto rounded-section-image" src={GROUP_INTRO_SRC} height={0} width={0} alt=''/>
             </div>
             <div className="flex flex-col w-1/2 py-4 gap-6">
               <h2 className="section-title-orange w-fit bg-transparent py-2 font-bold text-soundscape-orange text-3xl ">Intro to Consortium</h2>
@@ -131,19 +142,19 @@ const Home: NextPage = () => {
           <div className="flex flex-row w-full flex-wrap h-auto">
             <div className="flex flex-col w-1/3 h-auto"> 
               {/* <Image className="" src={} alt="" /> */}
-              <Image className="w-10/12" src={FEATURES_1 as ( HTMLElement & SVGElement )} alt="" />
+              <Image className="w-10/12" src={FEATURES_1_SRC} alt="" />
               <h4 className="w-fit bg-transparent py-2 font-semibold text-soundscape-orange text-xl" >Getting started with Soundscape</h4>
               <p className="mr-2 font-work-sans text-soundscape-blue font-medium pr-8">After you install Soundscape, connect a stereo headset or earbuds. Follow the introductions and when prompted, allow the app to access your location. Then, explore a familiar route to get used to how Soundscape delivers spatial information.</p>
             </div>
             <div className="flex flex-col w-1/3 h-auto"> 
               {/* <Image className="" src={} alt="" /> */}
-              <Image className="w-10/12" src={FEATURES_2 as ( HTMLElement & SVGElement )} alt="" />
+              <Image className="w-10/12" src={FEATURES_2_SRC} alt="" />
               <h4 className="w-fit bg-transparent py-2 font-semibold text-soundscape-orange text-xl" >Device compatibility</h4>
               <p className="mr-2 font-work-sans text-soundscape-blue font-medium pr-8">Soundscape is an application designed to operate on iPhone SE, iPhone 6S, and newer models. It is engineered to be compatible with both wired and Bluetooth stereo headsets, providing users with a seamless audio experience.</p>
             </div>
             <div className="flex flex-col w-1/3 h-auto"> 
               {/* <Image className="" src={} alt="" /> */}
-              <Image className="w-10/12" src={FEATURES_3 as ( HTMLElement & SVGElement )} alt="" />
+              <Image className="w-10/12" src={FEATURES_3_SRC} alt="" />
               <h4 className="w-fit bg-transparent py-2 font-semibold text-soundscape-orange text-xl" >Explore, discover, and have fun!</h4>
               <p className="mr-2 font-work-sans text-soundscape-blue font-medium pr-8">You can use Soundscape in a number of different ways, whether on a well-known route, out about with a friend or using it to discover new places.​</p>
             </div>
@@ -169,7 +180,7 @@ const Home: NextPage = () => {
         </div>
       {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
         <div className="flex flex-col w-full h-auto bg-soundscape-white py-28 px-20">
-          <h3 className="w-fit bg-transparent py-2 mb-6 font-semibold text-soundscape-dark-grey text-2xl">Disclaimer</h3>
+          <h3 className="w-fit bg-transparent py-2 mb- font-semibold text-soundscape-dark-grey text-2xl">Disclaimer</h3>
           <div className="flex flex-row w-full gap-16">  
             <div className="flex w-1/2 ">
               <p>Microsoft Soundscape is not designed, intended or made available for diagnosis, treatment, or prevention of diseases and for use as a mobility aid or medical device; and is not designed or intended to be a substitute for professional medical advice, diagnosis, treatment, or judgement and should not be used to replace or as a substitute for professional </p>
