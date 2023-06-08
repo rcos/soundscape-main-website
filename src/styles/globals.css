@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.section-title-blue {
+    position: relative;
+}
+
+
+.section-title-blue::after {
+    position: absolute;
+    content: '';
+    top: -5px;
+    left: 0;
+    height: 5px;
+    width: 60px;
+
+    background-color: #243A66;
+}
+
+.section-title-orange {
+    position: relative;
+}
+
+
+.section-title-orange::after {
+    position: absolute;
+    content: '';
+    top: -5px;
+    left: 0;
+    height: 5px;
+    width: 60px;
+
+    background-color: #FF5B00;
+}
+
+.section-title-white {
+    position: relative;
+}
+
+
+.section-title-white::after {
+    position: absolute;
+    content: '';
+    top: -5px;
+    left: 0;
+    height: 5px;
+    width: 60px;
+
+    background-color: #FFFFFF;
+}
+
+.player-wrapper {
+  position: relative;
+  padding-top: 56.25%; /* 720 / 1280 = 0.5625 */
+  border-radius: 5px;
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 20px;
+  overflow: hidden;
+}
