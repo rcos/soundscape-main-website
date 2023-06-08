@@ -16,14 +16,14 @@ import FEATURES_2 from '@/images/Features_2.png'
 import FEATURES_3 from '@/images/Features_3.png'
 import ReactPlayer from 'react-player'
 
-const logoSrc: string = (LOGO as string) ;
-const adidasSrc: string = Adidas_Logo ;
-const HERO_BG_SRC: string = HERO_BG;
-const IPHONE_1_SRC: string = IPHONE_1;
-const GROUP_INTRO_SRC: string = GROUP_INTRO;
-const FEATURES_1_SRC: string = FEATURES_1;
-const FEATURES_2_SRC: string = FEATURES_2;
-const FEATURES_3_SRC: string = FEATURES_3;
+//const logoSrc: StaticImageData = (LOGO as string) ;
+const adidasSrc: StaticImageData = Adidas_Logo ;
+const HERO_BG_SRC: StaticImageData = HERO_BG;
+const IPHONE_1_SRC: StaticImageData = IPHONE_1;
+const GROUP_INTRO_SRC: StaticImageData = GROUP_INTRO;
+const FEATURES_1_SRC: StaticImageData = FEATURES_1;
+const FEATURES_2_SRC: StaticImageData = FEATURES_2;
+const FEATURES_3_SRC: StaticImageData = FEATURES_3;
 
 
 
@@ -50,7 +50,7 @@ const Home: NextPage = () => {
       {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
         <header className="flex h-header w-full fixed top-0 left-0 z-50 px-16 py-4 items-center justify-between bg-soundscape-blue-bg "> 
           <div className="flex h-full w-auto">
-            <Image className="h-full w-auto" src={logoSrc} height={0} width={0} alt=''/>
+            <Image className="h-full w-auto" src={LOGO as string} height={0} width={0} alt=''/>
             <div className="flex flex-col w-auto px-4">
               <h1 className="w-full text-center text-soundscape-white text-2xl">Soundscape</h1>
               <h5 className="w-full text-center text-soundscape-white text-sm">for Everyone</h5>
