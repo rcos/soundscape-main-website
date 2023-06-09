@@ -9,6 +9,10 @@ export default {
         'poppins': ['Poppins', 'sans-serif'],
         'work-sans': ['Work Sans', 'sans-serif'], 
       },
+      flexBasis:{
+        'eList-1': '650px',
+        'eList-2': '600px',
+      },
       fontSize: {
         'hero-title': '2.75rem',
       },
