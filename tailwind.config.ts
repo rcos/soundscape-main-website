@@ -11,7 +11,7 @@ export default {
       },
       flexBasis:{
         'eList-1': '650px',
-        'eList-1': '600px',
+        'eList-2': '600px',
       },
       fontSize: {
         'hero-title': '2.75rem',
