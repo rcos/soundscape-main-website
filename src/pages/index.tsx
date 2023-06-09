@@ -172,7 +172,7 @@ const Home: NextPage = () => {
             </div>
             <div className="flex gap-8 basis-eList-2" >
               <div className="flex flex-col gap-2">
-                <input type="text" placeholder="Email Address" className="flex px-4 py-3 w-96 text-lg rounded-primary-input bg-soundscape-input-bg border border-stone-300" /> 
+                <input type="text" placeholder="Email Address" style={{'borderColor': 'lightgrey', 'color': 'lightgrey'}} className="flex px-4 py-3 w-96 text-lg rounded-primary-input bg-soundscape-input-bg border-2 border-gray-200 outline-0 text-gray-300" /> 
                 <p className="font-work-sans text-soundscape-white font-small text-sm" >We will only sporadically send you availability updates.</p>
               </div>
               <div>
