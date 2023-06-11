@@ -13,6 +13,11 @@ body {
     position: relative;
 }
 
+.hero {
+
+    object-position: top 0px left 80% !important;
+}
+
 
 .section-title-blue::after {
     position: absolute;
