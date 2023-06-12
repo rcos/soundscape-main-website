@@ -4,10 +4,26 @@ import HERO_BG from '@/images/Desktop_Hero_mage.jpg'
 export default {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    screens: {
+      'mobile': '320',
+      'tablet': '640px',
+      'laptop': '1024px',
+      'desktop': '1280px',
+      'xl-screen': '1536px',
+      xs: '320px',
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+    },
     extend: {
       fontFamily: { 
         'poppins': ['Poppins', 'sans-serif'],
         'work-sans': ['Work Sans', 'sans-serif'], 
+      },
+      objectPosition: {
+        'hero-big-screen': 'top 0px left 80%',
       },
       flexBasis:{
         'eList-1': '650px',
@@ -15,15 +31,19 @@ export default {
       },
       fontSize: {
         'hero-title': '2.75rem',
+        'hero-title-sub': '1.75rem',
       },
       margin: {
         'header-gap': '95px',
       },
       height: {
         header: '95px',
-        'main-hero': '625px',
+        'main-hero': '575px',
         'phone': '400px',
-        'section-img': '385px',
+        'section-img': 'auto',
+      },
+      width: {
+        'fill-available': '-webkit-fill-available',
       },
       borderRadius: {
         'header-btn': '10px',
