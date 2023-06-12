@@ -85,6 +85,7 @@ const Home: NextPage = () => {
           <Image className="absolute h-full object-cover z-10
                             2xl:object-hero-big-screen xl:object-hero-big-screen  lg:object-hero-big-screen  md:object-left-top sm:object-left-top  xs:object-left-top" src={HERO_BG_SRC} height={0} width={0} alt=''/>
           <div className="flex flex-col z-30 gap-6 mx-20
+                          2xl:mx-20  xl:mx-20 lg:mx-20   md:mx-16  sm:mx-8  xs:mx-6
                           2xl:items-start  xl:items-start lg:items-start   md:items-center  sm:items:center  xs:items-center
                           2xl:mt-36 xl:mt-36  lg:mt-24  md:mt-24  sm:mt-24  xs:mt-24
                           2xl:w-[45vw]  xl:w-[45vw]  lg:w-[35vw]  md:w-fill-available  sm:w-fill-available  xs:w-fill-available ">
