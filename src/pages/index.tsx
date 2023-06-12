@@ -7,7 +7,7 @@ import type { StaticImageData } from "next/image"
 import { api } from "~/utils/api";
 
 import LOGO from '@/images/Soundscape_Logo.svg'
-import Adidas_Logo from '@/images/Adidas_Logo.png'
+import { myImage1 } from "~/assets/images/media";
 import HERO_BG from '@/images/HERO.jpg'
 import IPHONE_1 from '@/images/iPhone14_First.png'
 import GROUP_INTRO from '@/images/Group_Intro.jpg'
@@ -20,7 +20,6 @@ import { HiMenu } from "react-icons/hi";
 
 
 //const logoSrc: StaticImageData = (LOGO as string) ;
-const adidasSrc: StaticImageData = Adidas_Logo ;
 const HERO_BG_SRC: StaticImageData = HERO_BG;
 const IPHONE_1_SRC: StaticImageData = IPHONE_1;
 const GROUP_INTRO_SRC: StaticImageData = GROUP_INTRO;
@@ -103,10 +102,10 @@ const Home: NextPage = () => {
           </div>
 
           <div className="flex flex-row z-30 w-auto h-auto py-8 ml-20 gap-16">
-            <Image className="h-20 w-auto" src={adidasSrc} height={0} width={0} alt=''/>
-            <Image className="h-20 w-auto" src={adidasSrc} height={0} width={0} alt=''/>
-            <Image className="h-20 w-auto" src={adidasSrc} height={0} width={0} alt=''/>
-            <Image className="h-20 w-auto" src={adidasSrc} height={0} width={0} alt=''/>
+            <Image className="h-20 w-auto" src={myImage1.src} height={0} width={0} alt={myImage1.alt}/>
+            <Image className="h-20 w-auto" src={myImage1.src} height={0} width={0} alt={myImage1.alt}/>
+            <Image className="h-20 w-auto" src={myImage1.src} height={0} width={0} alt={myImage1.alt}/>
+            <Image className="h-20 w-auto" src={myImage1.src} height={0} width={0} alt={myImage1.alt}/>
           </div>
 
         </div>
