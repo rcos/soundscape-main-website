@@ -63,11 +63,8 @@ body {
 }
 
 .player-wrapper {
-  position: relative;
-  height: 450px; /*56.25%; /* 720 / 1280 = 0.5625 */
-  border-radius: 5px;
-  
-
+    width: auto; /*Reset width*/
+    height: auto; /*Reset height*/
 }
 
 .react-player {
