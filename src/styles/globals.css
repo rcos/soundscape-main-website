@@ -73,3 +73,8 @@ body {
     overflow: hidden; /*makes border appear*/
     position: relative; /*Set to relative*/
 }
+
+.react-player > div {
+    top: 0;
+    position: absolute; /*Scaling will occur since parent is relative now*/
+}
