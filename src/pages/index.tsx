@@ -5,14 +5,7 @@ import Link from "next/link";
 import Image from 'next/image'
 import { api } from "~/utils/api";
 
-import { ssLogoImg } from "~/assets/images/media";
-import { adidasLogoImg } from "~/assets/images/media";
-import { heroBgImg } from "~/assets/images/media";
-import { iphone14Img } from "~/assets/images/media";
-import { groupIntroImg } from "~/assets/images/media";
-import { features1Img } from "~/assets/images/media";
-import { features2Img } from "~/assets/images/media";
-import { features3Img } from "~/assets/images/media";
+import { ssLogoImg, adidasLogoImg, heroBgImg, iphone14Img, groupIntroImg, features1Img, features2Img, features3Img } from "~/assets/images/media";
 
 import ReactPlayer from 'react-player'
 

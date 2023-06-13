@@ -9,7 +9,7 @@ import feat2 from "../images/Features_2.png"
 import feat3 from "../images/Features_3.png"
 
 export const ssLogoImg: altImage = {
-  src: ssLogo,
+  src: ssLogo as string,
   alt: "",
 };
 
