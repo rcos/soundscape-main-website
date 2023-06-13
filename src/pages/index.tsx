@@ -15,6 +15,7 @@ import FEATURES_1 from '@/images/Features_1.png'
 import FEATURES_2 from '@/images/Features_2.png'
 import FEATURES_3 from '@/images/Features_3.png'
 import ReactPlayer from 'react-player'
+import React from 'react'
 
 import { HiMenu } from "react-icons/hi";
 
@@ -160,7 +161,7 @@ const Home: NextPage = () => {
           <div className="flex flex-row-reverse flex-wrap  w-full h-auto"> {/* Just Have To Reverse here */}
             <div className="xl:basis-7/12 lg:basis-full lg:w-full md:basis-full md:w-full sm:basis-full sm:w-full  xl:pl-10 ">
               <div className='player-wrapper lg:flex lg:justify-center'>
-                { !initialRenderComplete ? <></> : <ReactPlayer url='https://youtu.be/QR_2eF0YjM0' className='react-player' /> }
+                { !initialRenderComplete ? <></> : <ReactPlayer url='https://youtu.be/QR_2eF0YjM0' height='100%' width='100%' className='react-player' /> }
               </div>
               {/*<Image className="h-section-img w-auto rounded-section-image" src={GROUP_INTRO as ( HTMLElement & SVGElement )} height={0} width={0} alt=''/>*/}
             </div>
