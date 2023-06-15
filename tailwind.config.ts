@@ -10,7 +10,7 @@ export default {
       's-laptop': '768px',
       'laptop': '1024px',
       'desktop': '1280px',
-      'xl-screen': '1536px',
+      'tv': '1536px',
       xs: '320px',
       sm: '640px',
       md: '768px',
