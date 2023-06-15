@@ -5,8 +5,9 @@ export default {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
-      'mobile': '320',
+      'mobile': '320px',
       'tablet': '640px',
+      's-laptop': '768px',
       'laptop': '1024px',
       'desktop': '1280px',
       'xl-screen': '1536px',
@@ -57,6 +58,7 @@ export default {
 
     },
     colors: {
+      //change titles to easier understand
       'soundscape-white': '#FFFFFF',
       'soundscape-blue': '#243A66',
       'soundscape-bright-blue': '#4DD1FF',
