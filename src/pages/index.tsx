@@ -13,17 +13,26 @@ import { HiMenu } from "react-icons/hi";
 
 import toast, { Toaster } from 'react-hot-toast';
 
+import Marquee from "react-fast-marquee";
+
 const notifyPageMissing = () => toast('This page is coming soon!');
 const notifyFuncMissing = () => toast('This functionaility is coming soon!');
 
 
+interface MyLink {
+  route: string
+  link: string
+}
 
 //HERO IS GOOD UNTIL 1024px
 
 const Home: NextPage = () => {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  //const hello = api.example.hello.useQuery({ text: "from tRPC" });
 
-  const HeaderLinks = [ 'Home', 'Features', 'About', 'Support', 'People', 'News & Features'];
+
+  //const HeaderLinks: Array<MyLink> = [ { route: 'Privacy Policy', link: "https://ialabs.ie/privacy-policy/" }, { route: 'Home', link: "/" }, { route: 'Features', link: "/" } , { route: 'About', link: "/" } , { route: 'Support', link: "/" } , { route: 'People', link: "/" } , { route: 'News & Features', link: "/" } ];
+
+  const HeaderLinks = [ 'Privacy Policy' /*'Home', 'Features', 'About', 'Support', 'People', 'News & Features'*/];
 
   const [initialRenderComplete, setInitialRenderComplete] = useState(false);
 
@@ -52,10 +61,10 @@ const Home: NextPage = () => {
             </div>
           </div>
           <div className="2xl:flex xl:flex lg:hidden m:hidden sm:hidden xs:hidden"> 
-            { HeaderLinks.map((link, index) => {
+            { HeaderLinks.map((element, index) => {
               return (
-                <Link className="flex h-10 w-auto text-soundscape-white text-center items-center text-base px-4 mx-3 cursor-pointer rounded-header-btn hover:bg-soundscape-dark-blue " href="/" onClick={notifyPageMissing} key={index}>
-                  {link}
+                <Link className="flex h-10 w-auto text-soundscape-white text-center items-center text-base px-4 mx-3 cursor-pointer rounded-header-btn hover:bg-soundscape-white hover:text-soundscape-dark-blue " href={'https://ialabs.ie/privacy-policy/'} onClick={notifyPageMissing} key={index}>
+                  {element}
                 </Link>
               )
             })}
@@ -84,16 +93,23 @@ const Home: NextPage = () => {
               </p>
               <button className="h-auto w-fit bg-soundscape-orange rounded-primary-btn px-16 py-4 text-soundscape-white text-lg font-semibold" onClick={notifyFuncMissing} >Donate</button>
           </div>
-
-          <div className="flex flex-row z-30 w-auto h-auto py-8 ml-20 gap-16">
-            <Image className="h-20 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-            <Image className="h-20 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-            <Image className="h-20 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-            <Image className="h-20 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-          </div>
-
         </div>
       {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
+      <div className={`flex flex-row h-36 w-fill-available bg-soundscape-dark-blue`}>
+            <Marquee gradient={false} style={{ background: 'transparent !important' }}>
+               <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+               <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+               <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+               <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+               <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+               <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+               <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+               <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+               <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+               <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+            </Marquee>
+        </div>
+      {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}  
         <div className="flex flex-col w-full h-auto bg-soundscape-grey-bg py-28 
                         2xl:px-20 xl:px-20 lg:px-20 md:px-20 sm:px-10 xs:px-10">
           <h2 className="section-title-blue w-fit bg-transparent py-2 font-bold text-soundscape-blue text-3xl ">What is Soundscape</h2>
