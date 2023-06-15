@@ -63,7 +63,7 @@ export default {
       'cyan-blue': '#4DD1FF',
       'dark-blue': '#0F1F38',
       'orange': '#FF5B00',
-      'soundscape-dark-grey': '#4b5364',
+      'dark-grey': '#4b5364',
       'soundscape-input-bg': '#FFFFFF1A',
       'navy-blue-bg': '#243A66',
       'soundscape-grey-bg': '#EDEFF3',

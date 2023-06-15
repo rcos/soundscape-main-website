@@ -210,7 +210,7 @@ const Home: NextPage = () => {
       {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
         <div className="flex flex-col w-full h-auto bg-white py-28
                         tv:px-20 desktop:px-20 laptop:px-20 s-laptop:px-20 tablet:px-10 mobile:px-10">
-          <h3 className="w-fit bg-transparent py-2 mb- font-semibold text-soundscape-dark-grey text-2xl">Disclaimer</h3>
+          <h3 className="w-fit bg-transparent py-2 mb- font-semibold text-dark-grey text-2xl">Disclaimer</h3>
           <div className="flex w-full gap-16
                           tv:flex-row desktop:flex-row laptop:flex-row s-laptop:flex-row tablet:flex-col mobile:flex-col">  
             <div className="flex tv:w-1/2 desktop:w-1/2 laptop:w-1/2 s-laptop:w-1/2 tablet:w-full mobile:w-full ">
@@ -223,7 +223,7 @@ const Home: NextPage = () => {
 
         </div>
       {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
-        <footer className="flex flex-row justify-between py-8 bg-soundscape-dark-grey text-white
+        <footer className="flex flex-row justify-between py-8 bg-dark-grey text-white
                           tv:px-16 desktop:px-16 laptop:px-16 s-laptop:px-16 tablet:px-8 mobile:px-8">
           <div className="flex flex-row">©{new Date().getFullYear()} Soundscape for Everyone</div>
           <div className="tv:flex desktop:flex laptop:hidden m:hidden tablet:hidden mobile:hidden"> 
