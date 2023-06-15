@@ -49,7 +49,7 @@ const Home: NextPage = () => {
             <Image className="h-full w-auto" src={ssLogoImg.src} height={0} width={0} alt={ssLogoImg.alt}/>
             <div className="flex-col w-auto px-4
                             tv:flex xl:flex laptop:flex s-laptop:flex tablet:flex mobile:hidden">
-              <h1 className="w-full text-center text-soundscape-white text-tv">Soundscape</h1>
+              <h1 className="w-full text-center text-soundscape-white text-2xl">Soundscape</h1>
               <h5 className="w-full text-center text-soundscape-white text-tablet">for Everyone</h5>
             </div>
           </div>
@@ -81,7 +81,7 @@ const Home: NextPage = () => {
               
               </h2>
               <p className="font-work-sans font-normal w-full text-left text-soundscape-white 
-                            tv:text-3xl xl:text-3xl laptop:text-tv  s-laptop:text-tv  tablet:text-tv  mobile:text-tv">
+                            tv:text-3xl xl:text-3xl laptop:text-2xl  s-laptop:text-2xl  tablet:text-2xl  mobile:text-2xl">
                 Explore, discover, and have fun with your own 3D sound map of the word!
               </p>
               <button className="h-auto w-fit bg-soundscape-orange rounded-primary-btn px-16 py-4 text-soundscape-white text-laptop font-semibold" onClick={notifyFuncMissing} >Donate</button>
@@ -189,7 +189,7 @@ const Home: NextPage = () => {
                         tv:px-20 xl:px-20 laptop:px-20 s-laptop:px-20 tablet:px-10 mobile:px-10">
           <div className="flex flex-row flex-wrap w-full h-auto gap-8">
             <div className="flex flex-col w-1/2 h-auto basis-eList-1">
-              <h3 className="w-fit bg-transparent py-2 font-semibold text-soundscape-white text-tv ">Stay up to date on <span className="text-soundscape-bright-blue">Soundscape for everyone.</span></h3>
+              <h3 className="w-fit bg-transparent py-2 font-semibold text-soundscape-white text-2xl ">Stay up to date on <span className="text-soundscape-bright-blue">Soundscape for everyone.</span></h3>
               <p className="font-work-sans text-soundscape-white font-medium">Sign up to get the latest updates and news about Soundscape for Everyone.</p>
             </div>
             <div className="flex gap-8 basis-eList-2  
@@ -210,7 +210,7 @@ const Home: NextPage = () => {
       {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
         <div className="flex flex-col w-full h-auto bg-soundscape-white py-28
                         tv:px-20 xl:px-20 laptop:px-20 s-laptop:px-20 tablet:px-10 mobile:px-10">
-          <h3 className="w-fit bg-transparent py-2 mb- font-semibold text-soundscape-dark-grey text-tv">Disclaimer</h3>
+          <h3 className="w-fit bg-transparent py-2 mb- font-semibold text-soundscape-dark-grey text-2xl">Disclaimer</h3>
           <div className="flex w-full gap-16
                           tv:flex-row xl:flex-row laptop:flex-row s-laptop:flex-row tablet:flex-col mobile:flex-col">  
             <div className="flex tv:w-1/2 xl:w-1/2 laptop:w-1/2 s-laptop:w-1/2 tablet:w-full mobile:w-full ">
