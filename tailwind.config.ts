@@ -66,7 +66,7 @@ export default {
       'dark-grey': '#4b5364',
       'pale-bg': '#FFFFFF1A',
       'navy-blue-bg': '#243A66',
-      'soundscape-grey-bg': '#EDEFF3',
+      'light-grey-bg': '#EDEFF3',
       'white-bg': '#DEE1E5',
     }
   },

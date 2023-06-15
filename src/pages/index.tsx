@@ -96,7 +96,7 @@ const Home: NextPage = () => {
 
         </div>
       {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
-        <div className="flex flex-col w-full h-auto bg-soundscape-grey-bg py-28 
+        <div className="flex flex-col w-full h-auto bg-light-grey-bg py-28 
                         tv:px-20 desktop:px-20 laptop:px-20 s-laptop:px-20 tablet:px-10 mobile:px-10">
           <h2 className="section-title-blue w-fit bg-transparent py-2 font-bold text-navy-blue text-3xl ">What is Soundscape</h2>
           <div className="flex flex-row flex-wrap w-full h-auto
