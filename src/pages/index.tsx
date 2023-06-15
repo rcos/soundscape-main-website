@@ -189,7 +189,7 @@ const Home: NextPage = () => {
                         tv:px-20 desktop:px-20 laptop:px-20 s-laptop:px-20 tablet:px-10 mobile:px-10">
           <div className="flex flex-row flex-wrap w-full h-auto gap-8">
             <div className="flex flex-col w-1/2 h-auto basis-eList-1">
-              <h3 className="w-fit bg-transparent py-2 font-semibold text-white text-2xl ">Stay up to date on <span className="text-soundscape-bright-blue">Soundscape for everyone.</span></h3>
+              <h3 className="w-fit bg-transparent py-2 font-semibold text-white text-2xl ">Stay up to date on <span className="text-cyan-blue">Soundscape for everyone.</span></h3>
               <p className="font-work-sans text-white font-medium">Sign up to get the latest updates and news about Soundscape for Everyone.</p>
             </div>
             <div className="flex gap-8 basis-eList-2  

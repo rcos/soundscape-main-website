@@ -60,7 +60,7 @@ export default {
     colors: {
       'white': '#FFFFFF',
       'navy-blue': '#243A66',
-      'soundscape-bright-blue': '#4DD1FF',
+      'cyan-blue': '#4DD1FF',
       'soundscape-dark-blue': '#0F1F38',
       'soundscape-orange': '#FF5B00',
       'soundscape-dark-grey': '#4b5364',
