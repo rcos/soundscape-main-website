@@ -59,13 +59,13 @@ export default {
     },
     colors: {
       'white': '#FFFFFF',
-      'soundscape-blue': '#243A66',
+      'navy-blue': '#243A66',
       'soundscape-bright-blue': '#4DD1FF',
       'soundscape-dark-blue': '#0F1F38',
       'soundscape-orange': '#FF5B00',
       'soundscape-dark-grey': '#4b5364',
       'soundscape-input-bg': '#FFFFFF1A',
-      'soundscape-blue-bg': '#243A66',
+      'navy-blue-bg': '#243A66',
       'soundscape-grey-bg': '#EDEFF3',
       'white-bg': '#DEE1E5',
     }

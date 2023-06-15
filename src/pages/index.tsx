@@ -43,7 +43,7 @@ const Home: NextPage = () => {
       </Head>
       <main className="flex min-h-screen w-full flex-col bg-white-bg mt-header-gap font-poppins overflow-x-hidden">
       {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
-        <header className="flex h-header w-full fixed top-0 left-0 z-50 py-4 items-center justify-between bg-soundscape-blue-bg 
+        <header className="flex h-header w-full fixed top-0 left-0 z-50 py-4 items-center justify-between bg-navy-blue-bg 
                            tv:px-16 desktop:px-16 laptop:px-16 s-laptop:px-16 tablet:px-8 mobile:px-8"> 
           <div className="flex h-full w-auto">
             <Image className="h-full w-auto" src={ssLogoImg.src} height={0} width={0} alt={ssLogoImg.alt}/>
@@ -98,7 +98,7 @@ const Home: NextPage = () => {
       {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
         <div className="flex flex-col w-full h-auto bg-soundscape-grey-bg py-28 
                         tv:px-20 desktop:px-20 laptop:px-20 s-laptop:px-20 tablet:px-10 mobile:px-10">
-          <h2 className="section-title-blue w-fit bg-transparent py-2 font-bold text-soundscape-blue text-3xl ">What is Soundscape</h2>
+          <h2 className="section-title-blue w-fit bg-transparent py-2 font-bold text-navy-blue text-3xl ">What is Soundscape</h2>
           <div className="flex flex-row flex-wrap w-full h-auto
                           tv:px-20 desktop:px-20 laptop:px-20 s-laptop:px-20 tablet:px-10 mobile:px-0">
             <div className="flex h-auto py-12
@@ -109,7 +109,7 @@ const Home: NextPage = () => {
               <div className="flex flex-col pl-8 pr-2 py-8 gap-6">
                 <h4 className="w-fit bg-transparent py-2 font-semibold text-soundscape-orange text-xl" >Spatial Audio Technology</h4>
                 {/** mr-8 seemed to flow better */}
-                <p className="mr-6 font-work-sans text-soundscape-blue font-medium">Soundscape uses 3D or spatial audio technology to enable people to build a richer awareness of their surroundings, thus becoming more confident and empowered to get around. </p>
+                <p className="mr-6 font-work-sans text-navy-blue font-medium">Soundscape uses 3D or spatial audio technology to enable people to build a richer awareness of their surroundings, thus becoming more confident and empowered to get around. </p>
               </div>
             </div>
             <div className="flex h-auto py-12
@@ -120,7 +120,7 @@ const Home: NextPage = () => {
               <div className="flex flex-col pl-8 pr-2 py-8 gap-6">
                 <h4 className="w-fit bg-transparent py-2 font-semibold text-soundscape-orange text-xl" >Intuitive way to works</h4>
                 {/** mr-8 seemed to flow better */}
-                <p className="mr-6 font-work-sans text-soundscape-blue font-medium">Hence, Soundscape makes familiar places richer with the information it provides; and it makes unfamiliar places become familiar because of the intuitive way it works. </p>
+                <p className="mr-6 font-work-sans text-navy-blue font-medium">Hence, Soundscape makes familiar places richer with the information it provides; and it makes unfamiliar places become familiar because of the intuitive way it works. </p>
               </div>
             </div>
           </div>
@@ -134,13 +134,13 @@ const Home: NextPage = () => {
             </div>
             <div className="flex flex-col desktop:basis-1/2 laptop:basis-full s-laptop:basis-full tablet-basis:full desktop:pl-10 py-4 gap-6">
               <h2 className="section-title-orange w-fit bg-transparent py-2 font-bold text-soundscape-orange text-3xl ">Intro to Consortium</h2>
-              <p className="font-work-sans text-soundscape-blue font-medium  mr-16">Following Microsoft’s decision to close down Soundscape, we are delighted to announce that a group of organizations and people, including the co-founders of Soundscape, have come together to not only make it available to existing users, but eventually make it available for everyone! </p>
-              <button className="h-auto w-fit bg-soundscape-blue rounded-primary-btn px-16 py-3 text-white text-laptop font-semibold" onClick={notifyPageMissing}>Learn More</button> 
+              <p className="font-work-sans text-navy-blue font-medium  mr-16">Following Microsoft’s decision to close down Soundscape, we are delighted to announce that a group of organizations and people, including the co-founders of Soundscape, have come together to not only make it available to existing users, but eventually make it available for everyone! </p>
+              <button className="h-auto w-fit bg-navy-blue rounded-primary-btn px-16 py-3 text-white text-laptop font-semibold" onClick={notifyPageMissing}>Learn More</button> 
             </div>
           </div>
         </div>
       {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
-        <div className="flex flex-col w-full h-auto bg-soundscape-blue py-28 
+        <div className="flex flex-col w-full h-auto bg-navy-blue py-28 
                          tv:px-20 desktop:px-20 laptop:px-20 s-laptop:px-20 tablet:px-10 mobile:px-10">
           <div className="flex flex-row-reverse flex-wrap  w-full h-auto"> {/* Just Have To Reverse here */}
           {/* change all screens like xl to more understandable version in tailwind.config*/}
@@ -168,24 +168,24 @@ const Home: NextPage = () => {
               {/* <Image className="" src={} alt="" /> */}
               <Image className="w-10/12" src={features1Img.src} alt={features1Img.alt}/>
               <h4 className="w-fit bg-transparent py-2 font-semibold text-soundscape-orange text-xl" >Getting started with Soundscape</h4>
-              <p className="mr-2 font-work-sans text-soundscape-blue font-medium pr-8">After you install Soundscape, connect a stereo headset or earbuds. Follow the introductions and when prompted, allow the app to access your location. Then, explore a familiar route to get used to how Soundscape delivers spatial information.</p>
+              <p className="mr-2 font-work-sans text-navy-blue font-medium pr-8">After you install Soundscape, connect a stereo headset or earbuds. Follow the introductions and when prompted, allow the app to access your location. Then, explore a familiar route to get used to how Soundscape delivers spatial information.</p>
             </div>
             <div className="flex flex-col basis-96 h-auto pb-4"> 
               {/* <Image className="" src={} alt="" /> */}
               <Image className="w-10/12" src={features2Img.src} alt={features2Img.alt} />
               <h4 className="w-fit bg-transparent py-2 font-semibold text-soundscape-orange text-xl" >Device compatibility</h4>
-              <p className="mr-2 font-work-sans text-soundscape-blue font-medium pr-8">Soundscape is an application designed to operate on iPhone SE, iPhone 6S, and newer models. It is engineered to be compatible with both wired and Bluetooth stereo headsets, providing users with a seamless audio experience.</p>
+              <p className="mr-2 font-work-sans text-navy-blue font-medium pr-8">Soundscape is an application designed to operate on iPhone SE, iPhone 6S, and newer models. It is engineered to be compatible with both wired and Bluetooth stereo headsets, providing users with a seamless audio experience.</p>
             </div>
             <div className="flex flex-col basis-96 h-auto pb-4"> 
               {/* <Image className="" src={} alt="" /> */}
               <Image className="w-10/12" src={features3Img.src} alt={features3Img.alt} />
               <h4 className="w-fit bg-transparent py-2 font-semibold text-soundscape-orange text-xl" >Explore, discover, and have fun!</h4>
-              <p className="mr-2 font-work-sans text-soundscape-blue font-medium pr-8">You can use Soundscape in a number of different ways, whether on a well-known route, out about with a friend or using it to discover new places.​</p>
+              <p className="mr-2 font-work-sans text-navy-blue font-medium pr-8">You can use Soundscape in a number of different ways, whether on a well-known route, out about with a friend or using it to discover new places.​</p>
             </div>
           </div>
         </div>
       {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
-        <div className="flex flex-col w-full h-auto bg-soundscape-blue py-28
+        <div className="flex flex-col w-full h-auto bg-navy-blue py-28
                         tv:px-20 desktop:px-20 laptop:px-20 s-laptop:px-20 tablet:px-10 mobile:px-10">
           <div className="flex flex-row flex-wrap w-full h-auto gap-8">
             <div className="flex flex-col w-1/2 h-auto basis-eList-1">
