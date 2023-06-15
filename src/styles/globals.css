@@ -63,17 +63,18 @@ body {
 }
 
 .player-wrapper {
-  position: relative;
-  height: 450px; /*56.25%; /* 720 / 1280 = 0.5625 */
-  border-radius: 5px;
-  
-
+    width: auto; /*Reset width*/
+    height: auto; /*Reset height*/
 }
 
 .react-player {
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 20px;
-  overflow: hidden;
+    padding-top: 56.25%; /*Percentage ratio for 16:9*/
+    border-radius: 15px; /*border of video turns circular*/
+    overflow: hidden; /*makes border appear*/
+    position: relative; /*Set to relative*/
+}
+
+.react-player > div {
+    top: 0;
+    position: absolute; /*Scaling will occur since parent is relative now*/
 }
