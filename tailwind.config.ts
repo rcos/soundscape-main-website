@@ -58,8 +58,7 @@ export default {
 
     },
     colors: {
-      //change titles to easier understand
-      'soundscape-white': '#FFFFFF',
+      'white': '#FFFFFF',
       'soundscape-blue': '#243A66',
       'soundscape-bright-blue': '#4DD1FF',
       'soundscape-dark-blue': '#0F1F38',
@@ -68,7 +67,7 @@ export default {
       'soundscape-input-bg': '#FFFFFF1A',
       'soundscape-blue-bg': '#243A66',
       'soundscape-grey-bg': '#EDEFF3',
-      'soundscape-white-bg': '#DEE1E5',
+      'white-bg': '#DEE1E5',
     }
   },
   plugins: [],
