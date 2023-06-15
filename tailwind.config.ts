@@ -67,7 +67,7 @@ export default {
       'pale-bg': '#FFFFFF1A',
       'navy-blue-bg': '#243A66',
       'light-grey-bg': '#EDEFF3',
-      'white-bg': '#DEE1E5',
+      'grey-bg': '#DEE1E5',
     }
   },
   plugins: [],
