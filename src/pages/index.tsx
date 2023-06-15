@@ -84,7 +84,7 @@ const Home: NextPage = () => {
                             tv:text-3xl desktop:text-3xl laptop:text-2xl  s-laptop:text-2xl  tablet:text-2xl  mobile:text-2xl">
                 Explore, discover, and have fun with your own 3D sound map of the word!
               </p>
-              <button className="h-auto w-fit bg-soundscape-orange rounded-primary-btn px-16 py-4 text-white text-laptop font-semibold" onClick={notifyFuncMissing} >Donate</button>
+              <button className="h-auto w-fit bg-orange rounded-primary-btn px-16 py-4 text-white text-laptop font-semibold" onClick={notifyFuncMissing} >Donate</button>
           </div>
 
           <div className="flex flex-row z-30 w-auto h-auto py-8 ml-20 gap-16">
@@ -107,7 +107,7 @@ const Home: NextPage = () => {
                             tv:basis-1/2 desktop:basis-1/2 laptop:basis-full s-laptop:basis-full tablet-basis:full mobile:basis-full ">
               <Image className="h-phone w-fit" src={iphone14Img.src} height={0} width={0} alt={iphone14Img.alt}/>
               <div className="flex flex-col pl-8 pr-2 py-8 gap-6">
-                <h4 className="w-fit bg-transparent py-2 font-semibold text-soundscape-orange text-xl" >Spatial Audio Technology</h4>
+                <h4 className="w-fit bg-transparent py-2 font-semibold text-orange text-xl" >Spatial Audio Technology</h4>
                 {/** mr-8 seemed to flow better */}
                 <p className="mr-6 font-work-sans text-navy-blue font-medium">Soundscape uses 3D or spatial audio technology to enable people to build a richer awareness of their surroundings, thus becoming more confident and empowered to get around. </p>
               </div>
@@ -118,7 +118,7 @@ const Home: NextPage = () => {
                             tv:basis-1/2 desktop:basis-1/2 laptop:basis-full s-laptop:basis-full tablet-basis:full mobile:basis-full ">
             <Image className="h-phone w-auto" src={iphone14Img.src} height={0} width={0} alt={iphone14Img.alt}/>
               <div className="flex flex-col pl-8 pr-2 py-8 gap-6">
-                <h4 className="w-fit bg-transparent py-2 font-semibold text-soundscape-orange text-xl" >Intuitive way to works</h4>
+                <h4 className="w-fit bg-transparent py-2 font-semibold text-orange text-xl" >Intuitive way to works</h4>
                 {/** mr-8 seemed to flow better */}
                 <p className="mr-6 font-work-sans text-navy-blue font-medium">Hence, Soundscape makes familiar places richer with the information it provides; and it makes unfamiliar places become familiar because of the intuitive way it works. </p>
               </div>
@@ -133,7 +133,7 @@ const Home: NextPage = () => {
               <Image className="h-section-img w-auto rounded-section-image" src={groupIntroImg.src} height={0} width={0} alt={groupIntroImg.alt}/>
             </div>
             <div className="flex flex-col desktop:basis-1/2 laptop:basis-full s-laptop:basis-full tablet-basis:full desktop:pl-10 py-4 gap-6">
-              <h2 className="section-title-orange w-fit bg-transparent py-2 font-bold text-soundscape-orange text-3xl ">Intro to Consortium</h2>
+              <h2 className="section-title-orange w-fit bg-transparent py-2 font-bold text-orange text-3xl ">Intro to Consortium</h2>
               <p className="font-work-sans text-navy-blue font-medium  mr-16">Following Microsoft’s decision to close down Soundscape, we are delighted to announce that a group of organizations and people, including the co-founders of Soundscape, have come together to not only make it available to existing users, but eventually make it available for everyone! </p>
               <button className="h-auto w-fit bg-navy-blue rounded-primary-btn px-16 py-3 text-white text-laptop font-semibold" onClick={notifyPageMissing}>Learn More</button> 
             </div>
@@ -167,19 +167,19 @@ const Home: NextPage = () => {
             <div className="flex flex-col basis-96 h-auto pb-4"> 
               {/* <Image className="" src={} alt="" /> */}
               <Image className="w-10/12" src={features1Img.src} alt={features1Img.alt}/>
-              <h4 className="w-fit bg-transparent py-2 font-semibold text-soundscape-orange text-xl" >Getting started with Soundscape</h4>
+              <h4 className="w-fit bg-transparent py-2 font-semibold text-orange text-xl" >Getting started with Soundscape</h4>
               <p className="mr-2 font-work-sans text-navy-blue font-medium pr-8">After you install Soundscape, connect a stereo headset or earbuds. Follow the introductions and when prompted, allow the app to access your location. Then, explore a familiar route to get used to how Soundscape delivers spatial information.</p>
             </div>
             <div className="flex flex-col basis-96 h-auto pb-4"> 
               {/* <Image className="" src={} alt="" /> */}
               <Image className="w-10/12" src={features2Img.src} alt={features2Img.alt} />
-              <h4 className="w-fit bg-transparent py-2 font-semibold text-soundscape-orange text-xl" >Device compatibility</h4>
+              <h4 className="w-fit bg-transparent py-2 font-semibold text-orange text-xl" >Device compatibility</h4>
               <p className="mr-2 font-work-sans text-navy-blue font-medium pr-8">Soundscape is an application designed to operate on iPhone SE, iPhone 6S, and newer models. It is engineered to be compatible with both wired and Bluetooth stereo headsets, providing users with a seamless audio experience.</p>
             </div>
             <div className="flex flex-col basis-96 h-auto pb-4"> 
               {/* <Image className="" src={} alt="" /> */}
               <Image className="w-10/12" src={features3Img.src} alt={features3Img.alt} />
-              <h4 className="w-fit bg-transparent py-2 font-semibold text-soundscape-orange text-xl" >Explore, discover, and have fun!</h4>
+              <h4 className="w-fit bg-transparent py-2 font-semibold text-orange text-xl" >Explore, discover, and have fun!</h4>
               <p className="mr-2 font-work-sans text-navy-blue font-medium pr-8">You can use Soundscape in a number of different ways, whether on a well-known route, out about with a friend or using it to discover new places.​</p>
             </div>
           </div>
@@ -202,7 +202,7 @@ const Home: NextPage = () => {
                 <p className="font-work-sans text-white font-tabletall text-tablet" >We will only sporadically send you availability updates.</p>
               </div>
               <div>
-                <button className="h-auto w-fit bg-soundscape-orange rounded-primary-btn px-10 py-3 text-white text-laptop font-semibold" onClick={notifyFuncMissing} >Get Updates</button>
+                <button className="h-auto w-fit bg-orange rounded-primary-btn px-10 py-3 text-white text-laptop font-semibold" onClick={notifyFuncMissing} >Get Updates</button>
               </div>
             </div>
           </div>
