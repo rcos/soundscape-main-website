@@ -21,12 +21,10 @@ const notifyPageMissing = () => toast('This page is coming soon!');
 const notifyFuncMissing = () => toast('This functionaility is coming soon!');
 
 
-interface MyLink {
+/*interface MyLink {
   route: string
   link: string
-}
-
-//HERO IS GOOD UNTIL 1024px
+}*/
 
 const Home: NextPage = () => {
   //const hello = api.example.hello.useQuery({ text: "from tRPC" });
@@ -41,6 +39,10 @@ const Home: NextPage = () => {
   useEffect(() => {
    setInitialRenderComplete(true);
   }, []);
+
+  function handleDonationClick(){
+    window.open( "https://www.flipcause.com/secure/cause_pdetails/MTc5NDQ1",'_blank')
+  }
   
 
   return (
@@ -53,7 +55,7 @@ const Home: NextPage = () => {
       <main className="flex min-h-screen w-full flex-col bg-soundscape-white-bg mt-header-gap font-poppins overflow-x-hidden">
       {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
         <header className="flex h-header w-full fixed top-0 left-0 z-50 py-4 items-center justify-between bg-soundscape-blue-bg 
-                           2xl:px-16 xl:px-16 lg:px-16 md:px-16 sm:px-8 xs:px-8"> 
+                           2xl:px-16 xl:px-16 lg:px-16 md:px-16 sm:px-8 xs:px-8"  style={{ boxShadow: '0 0px 15px #000' }}> 
           <div className="flex h-full w-auto">
             <Image className="h-full w-auto" src={ssLogoImg.src} height={0} width={0} alt={ssLogoImg.alt}/>
             <div className="flex-col w-auto px-4
@@ -93,23 +95,24 @@ const Home: NextPage = () => {
                             2xl:text-3xl xl:text-3xl lg:text-2xl  md:text-2xl  sm:text-2xl  xs:text-2xl">
                 Explore, discover, and have fun with your own 3D sound map of the word!
               </p>
-              <button className="h-auto w-fit bg-soundscape-orange rounded-primary-btn px-16 py-4 text-soundscape-white text-lg font-semibold" onClick={notifyFuncMissing} >Donate</button>
+              <button className="h-auto w-fit bg-soundscape-orange rounded-primary-btn px-16 py-4 text-soundscape-white text-lg font-semibold" onClick={handleDonationClick} >Donate</button>
           </div>
         </div>
       {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
-      <div className={`flex flex-row h-36 w-fill-available bg-soundscape-dark-blue`}>
-            <Marquee gradient={false} style={{ background: 'transparent !important' }}>
-               <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-               <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-               <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-               <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-               <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-               <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-               <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-               <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-               <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-               <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-            </Marquee>
+      <div className={`flex flex-col h-auto w-fill-available bg-soundscape-blue pb-8`} style={{ boxShadow: 'inset 0 0px 10px #000' }}>
+          <h1 className="w-full text-soundscape-white font-bold text-3xl text-center my-8 leading-8" >Meet the Soundscape Consortium</h1>
+          <Marquee gradient={false} style={{ background: 'transparent !important' }}>
+              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+          </Marquee>
         </div>
       {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}  
         <div className="flex flex-col w-full h-auto bg-soundscape-grey-bg py-28 
