@@ -15,23 +15,34 @@ import { HiMenu } from "react-icons/hi";
 
 import toast, { Toaster } from 'react-hot-toast';
 
+import Marquee from "react-fast-marquee";
+
 const notifyPageMissing = () => toast('This page is coming soon!');
 const notifyFuncMissing = () => toast('This functionaility is coming soon!');
 
 
-
-//HERO IS GOOD UNTIL 1024px
+/*interface MyLink {
+  route: string
+  link: string
+}*/
 
 const Home: NextPage = () => {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  //const hello = api.example.hello.useQuery({ text: "from tRPC" });
 
-  const HeaderLinks = [ 'Home', 'Features', 'About', 'Support', 'People', 'News & Features'];
+
+  //const HeaderLinks: Array<MyLink> = [ { route: 'Privacy Policy', link: "https://ialabs.ie/privacy-policy/" }, { route: 'Home', link: "/" }, { route: 'Features', link: "/" } , { route: 'About', link: "/" } , { route: 'Support', link: "/" } , { route: 'People', link: "/" } , { route: 'News & Features', link: "/" } ];
+
+  const HeaderLinks = [ 'Privacy Policy' /*'Home', 'Features', 'About', 'Support', 'People', 'News & Features'*/];
 
   const [initialRenderComplete, setInitialRenderComplete] = useState(false);
 
   useEffect(() => {
    setInitialRenderComplete(true);
   }, []);
+
+  function handleDonationClick(){
+    window.open( "https://www.flipcause.com/secure/cause_pdetails/MTc5NDQ1",'_blank')
+  }
   
 
   return (
@@ -43,8 +54,8 @@ const Home: NextPage = () => {
       </Head>
       <main className="flex min-h-screen w-full flex-col bg-grey-bg mt-header-gap font-poppins overflow-x-hidden">
       {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
-        <header className="flex h-header w-full fixed top-0 left-0 z-50 py-4 items-center justify-between bg-navy-blue-bg 
-                           tv:px-16 desktop:px-16 laptop:px-16 s-laptop:px-16 tablet:px-8 mobile:px-8"> 
+        <header className="flex h-header w-full fixed top-0 left-0 z-50 py-4 items-center justify-between bg-soundscape-blue-bg 
+                           2xl:px-16 xl:px-16 lg:px-16 md:px-16 sm:px-8 xs:px-8"  style={{ boxShadow: '0 0px 15px #000' }}> 
           <div className="flex h-full w-auto">
             <Image className="h-full w-auto" src={ssLogoImg.src} height={0} width={0} alt={ssLogoImg.alt}/>
             <div className="flex-col w-auto px-4
@@ -53,11 +64,11 @@ const Home: NextPage = () => {
               <h5 className="w-full text-center text-white text-tablet">for Everyone</h5>
             </div>
           </div>
-          <div className="tv:flex desktop:flex laptop:hidden m:hidden tablet:hidden mobile:hidden"> 
-            { HeaderLinks.map((link, index) => {
+          <div className="2xl:flex xl:flex lg:hidden m:hidden sm:hidden xs:hidden"> 
+            { HeaderLinks.map((element, index) => {
               return (
-                <Link className="flex h-10 w-auto text-white text-center items-center text-base px-4 mx-3 cursor-pointer rounded-header-btn hover:bg-dark-blue " href="/" onClick={notifyPageMissing} key={index}>
-                  {link}
+                <Link className="flex h-10 w-auto text-soundscape-white text-center items-center text-base px-4 mx-3 cursor-pointer rounded-header-btn hover:bg-soundscape-white hover:text-soundscape-dark-blue " href={'https://ialabs.ie/privacy-policy/'} onClick={notifyPageMissing} key={index}>
+                  {element}
                 </Link>
               )
             })}
@@ -84,21 +95,29 @@ const Home: NextPage = () => {
                             tv:text-3xl desktop:text-3xl laptop:text-2xl  s-laptop:text-2xl  tablet:text-2xl  mobile:text-2xl">
                 Explore, discover, and have fun with your own 3D sound map of the word!
               </p>
-              <button className="h-auto w-fit bg-orange rounded-primary-btn px-16 py-4 text-white text-laptop font-semibold" onClick={notifyFuncMissing} >Donate</button>
+              <button className="h-auto w-fit bg-soundscape-orange rounded-primary-btn px-16 py-4 text-soundscape-white text-lg font-semibold" onClick={handleDonationClick} >Donate</button>
           </div>
-
-          <div className="flex flex-row z-30 w-auto h-auto py-8 ml-20 gap-16">
-            <Image className="h-20 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-            <Image className="h-20 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-            <Image className="h-20 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-            <Image className="h-20 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-          </div>
-
         </div>
       {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
-        <div className="flex flex-col w-full h-auto bg-light-grey-bg py-28 
-                        tv:px-20 desktop:px-20 laptop:px-20 s-laptop:px-20 tablet:px-10 mobile:px-10">
-          <h2 className="section-title-blue w-fit bg-transparent py-2 font-bold text-navy-blue text-3xl ">What is Soundscape</h2>
+      <div className={`flex flex-col h-auto w-fill-available bg-soundscape-blue pb-8`} style={{ boxShadow: 'inset 0 0px 10px #000' }}>
+          <h1 className="w-full text-soundscape-white font-bold text-3xl text-center my-8 leading-8" >Meet the Soundscape Consortium</h1>
+          <Marquee gradient={false} style={{ background: 'transparent !important' }}>
+              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+          </Marquee>
+        </div>
+      {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}  
+        <div className="flex flex-col w-full h-auto bg-soundscape-grey-bg py-28 
+                        2xl:px-20 xl:px-20 lg:px-20 md:px-20 sm:px-10 xs:px-10">
+          <h2 className="section-title-blue w-fit bg-transparent py-2 font-bold text-soundscape-blue text-3xl ">What is Soundscape</h2>
           <div className="flex flex-row flex-wrap w-full h-auto
                           tv:px-20 desktop:px-20 laptop:px-20 s-laptop:px-20 tablet:px-10 mobile:px-0">
             <div className="flex h-auto py-12
