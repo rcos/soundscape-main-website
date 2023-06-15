@@ -197,7 +197,7 @@ const Home: NextPage = () => {
                             tv:flex-row desktop:flex-row laptop:flex-row s-laptop:flex-row tablet:flex-col mobile:flex-col" >
               <div className="flex flex-col gap-2">
                 <input type="text" placeholder="Email Address" style={{'borderColor': 'lightgrey', 'color': 'lightgrey'}} 
-                        className="flex px-4 py-3 w-96 text-laptop rounded-primary-input bg-soundscape-input-bg border-2 border-gray-200 outline-0 text-gray-300
+                        className="flex px-4 py-3 w-96 text-laptop rounded-primary-input bg-pale-bg border-2 border-gray-200 outline-0 text-gray-300
                                    tv:w-96 desktop:w-96 laptop:w-96 s-laptop:w-96 tablet:w-full mobile:w-full" /> 
                 <p className="font-work-sans text-white font-tabletall text-tablet" >We will only sporadically send you availability updates.</p>
               </div>
