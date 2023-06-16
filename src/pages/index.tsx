@@ -5,13 +5,14 @@ import Link from "next/link";
 import Image from 'next/image'
 import { api } from "~/utils/api";
 
-import { ssLogoImg, adidasLogoImg, heroBgImg, iphone14Img, groupIntroImg, features1Img, features2Img, features3Img } from "~/assets/images/media";
+import { ssLogoImg, adidasLogoImg, heroBgImg, iphone14Img, groupIntroImg, features1Img, features2Img, features3Img,
+        rpiLogo, crnaLogo, okeeneaLogo, ncbiLogo, pixelspaceLogo, iaLabsLogo, nvibeLogo  } from "~/assets/images/media";
 
 import ReactPlayer from 'react-player'
 
 import React from 'react';
 
-import { HiMenu } from "react-icons/hi";
+import { HiMenu, HiOutlineX } from "react-icons/hi";
 
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -24,7 +25,7 @@ const notifyFuncMissing = () => toast('This functionaility is coming soon!');
 /*interface MyLink {
   route: string
   link: string
-}*/
+} test*/
 
 const Home: NextPage = () => {
   //const hello = api.example.hello.useQuery({ text: "from tRPC" });
@@ -32,9 +33,10 @@ const Home: NextPage = () => {
 
   //const HeaderLinks: Array<MyLink> = [ { route: 'Privacy Policy', link: "https://ialabs.ie/privacy-policy/" }, { route: 'Home', link: "/" }, { route: 'Features', link: "/" } , { route: 'About', link: "/" } , { route: 'Support', link: "/" } , { route: 'People', link: "/" } , { route: 'News & Features', link: "/" } ];
 
-  const HeaderLinks = [ 'Privacy Policy' /*'Home', 'Features', 'About', 'Support', 'People', 'News & Features'*/];
-
+  const HeaderLinks = [ 'Privacy Policy', /*'How to Contribute' /*'Home', 'Features', 'About', 'Support', 'People', 'News & Features'*/];
+  const HeaderHrefs = [ 'https://ialabs.ie/privacy-policy/', '/how-to-contribute' ]
   const [initialRenderComplete, setInitialRenderComplete] = useState(false);
+  const [showNavDropdown, setShowNavDropdown] = useState(false);
 
   useEffect(() => {
    setInitialRenderComplete(true);
@@ -44,6 +46,9 @@ const Home: NextPage = () => {
     window.open( "https://www.flipcause.com/secure/cause_pdetails/MTc5NDQ1",'_blank')
   }
   
+  function handleDropdownClick(value: boolean) {
+    setShowNavDropdown(value)
+  }
 
   return (
     <>
@@ -67,14 +72,27 @@ const Home: NextPage = () => {
           <div className="2xl:flex xl:flex lg:hidden m:hidden sm:hidden xs:hidden"> 
             { HeaderLinks.map((element, index) => {
               return (
-                <Link className="flex h-10 w-auto text-soundscape-white text-center items-center text-base px-4 mx-3 cursor-pointer rounded-header-btn hover:bg-soundscape-white hover:text-soundscape-dark-blue " href={'https://ialabs.ie/privacy-policy/'} onClick={notifyPageMissing} key={index}>
+                <Link className="flex h-10 w-auto text-soundscape-white text-center items-center text-base px-4 mx-3 cursor-pointer rounded-header-btn hover:bg-soundscape-white hover:text-soundscape-dark-blue " href={HeaderHrefs[index] as string} onClick={notifyPageMissing} key={index}>
                   {element}
                 </Link>
               )
             })}
           </div>
-          <HiMenu className="2xl:hidden xl:hidden lg:flex md:flex sm:flex xs:flex" style={{ 'cursor': 'pointer'}} color="white" size={"2.5rem"} />
+          {!showNavDropdown && <HiMenu className="2xl:hidden xl:hidden lg:flex md:flex sm:flex xs:flex" style={{ 'cursor': 'pointer'}} color="white" size={"2.5rem"} onClick={() => { handleDropdownClick(true)}} /> }
+          {!!showNavDropdown && <HiOutlineX className="2xl:hidden xl:hidden lg:flex md:flex sm:flex xs:flex" style={{ 'cursor': 'pointer'}} color="white" size={"2.5rem"}  onClick={() => { handleDropdownClick(false)}} /> }
+      
         </header>
+        { !!showNavDropdown && <div className="flex flex-col h-auto w-full fixed top-h-header left-0 z-50 py-4 items-center justify-between bg-soundscape-white
+                           2xl:px-8 xl:px-8 lg:px-8 md:px-8 sm:px-4 xs:px-4 2xl:hidden xl:hidden lg:flex m:flex sm:flex xs:flex"  style={{ boxShadow: '0 15px 25px #222' }}> 
+            { HeaderLinks.map((element, index) => {
+              return (
+                <Link className={`flex h-10 w-fill-available text-stone-200 text-left text-xl font-bold items-center py-12 px-8 mx-3 cursor-pointer hover:text-soundscape-orange 
+                                  ${ index === 0 ? '' : 'border-t-2 border-t-stone-200' }`} href={HeaderHrefs[index] as string} onClick={notifyPageMissing} key={index}>
+                  {element}
+                </Link>
+              )
+            })}
+        </div> }
       {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
         <div className='flex flex-col h-main-hero w-full relative justify-between'>
           <Image className="absolute h-full object-cover z-10
@@ -102,16 +120,15 @@ const Home: NextPage = () => {
       <div className={`flex flex-col h-auto w-fill-available bg-soundscape-blue pb-8`} style={{ boxShadow: 'inset 0 0px 10px #000' }}>
           <h1 className="w-full text-soundscape-white font-bold text-3xl text-center my-8 leading-8" >Meet the Soundscape Consortium</h1>
           <Marquee gradient={false} style={{ background: 'transparent !important' }}>
-              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
-              <Image className="h-24 mx-12 w-auto" src={adidasLogoImg.src} height={0} width={0} alt={adidasLogoImg.alt}/>
+              <Image className="h-24 mx-12 w-auto" src={rpiLogo.src} height={0} width={0} alt={rpiLogo.alt} />
+              <Image className="h-24 mx-12 w-auto" src={crnaLogo.src} height={0} width={0} alt={crnaLogo.alt}/>
+              <Image className="h-24 mx-12 w-auto" src={okeeneaLogo.src} height={0} width={0} alt={okeeneaLogo.alt} />
+              <Image className="h-24 mx-12 w-auto" src={ncbiLogo.src} height={0} width={0} alt={ncbiLogo.alt} />
+              <Image className="h-24 mx-12 w-auto" src={pixelspaceLogo.src} height={0} width={0} alt={pixelspaceLogo.alt} />
+              <Image className="h-24 mx-12 w-auto" src={iaLabsLogo.src} height={0} width={0} alt={iaLabsLogo.alt} />
+              <Image className="h-24 mx-12 w-auto" src={nvibeLogo.src} height={0} width={0} alt={nvibeLogo.alt} />
+  
+         
           </Marquee>
         </div>
       {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}  
@@ -216,8 +233,8 @@ const Home: NextPage = () => {
               <div className="flex flex-col gap-2">
                 <input type="text" placeholder="Email Address" style={{'borderColor': 'lightgrey', 'color': 'lightgrey'}} 
                         className="flex px-4 py-3 w-96 text-lg rounded-primary-input bg-soundscape-input-bg border-2 border-gray-200 outline-0 text-gray-300
-                                   2xl:w-96 xl:w-96 lg:w-96 md:w-96 sm:w-full xs:w-full" /> 
-                <p className="font-work-sans text-soundscape-white font-small text-sm" >We will only sporadically send you availability updates.</p>
+                                   2xl:w-96 xl:w-96 lg:w-96 md:w-96 sm:w-full xs:w-full" disabled /> 
+                <p className="font-work-sans text-soundscape-white font-small text-sm" > Email List is Coming Soon!{/*We will only sporadically send you availability updates.*/}</p>
               </div>
               <div>
                 <button className="h-auto w-fit bg-soundscape-orange rounded-primary-btn px-10 py-3 text-soundscape-white text-lg font-semibold" onClick={notifyFuncMissing} >Get Updates</button>
