@@ -113,7 +113,7 @@ const Home: NextPage = () => {
                             2xl:text-3xl xl:text-3xl lg:text-2xl  md:text-2xl  sm:text-2xl  xs:text-2xl">
                 Explore, discover, and have fun with your own 3D sound map of the word!
               </p>
-              <button className="h-auto w-fit bg-soundscape-orange rounded-primary-btn px-16 py-4 text-soundscape-white text-lg font-semibold" onClick={handleDonationClick} >Donate</button>
+              <button className="h-auto w-fit bg-soundscape-dark-orange rounded-primary-btn px-16 py-4 text-soundscape-white text-lg font-semibold" onClick={handleDonationClick} >Donate</button>
           </div>
         </div>
       {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
