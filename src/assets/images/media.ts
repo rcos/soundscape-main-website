@@ -8,7 +8,7 @@ import feat1 from "../images/Features_1.png"
 import feat2 from "../images/Features_2.png"
 import feat3 from "../images/Features_3.png"
 
-import IA_Labs from "../images/ia-labs-logo.png"
+import IA_Labs from "../images/iA-labs-logo.png"
 import N_Vibe from "../images/n-vibe-logo.png"
 import NCBI from "../images/NCBI-logo.png"
 import CRNA from "../images/capital-region-nordic-logo.png"
