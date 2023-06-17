@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from 'next/image'
 import { api } from "~/utils/api";
 
+import Footer from "~/common/components/layout/Footer.component";
+
 import { ssLogoImg, adidasLogoImg, heroBgImg, iphone14Img, groupIntroImg, features1Img, features2Img, features3Img,
         rpiLogo, crnaLogo, okeeneaLogo, ncbiLogo, pixelspaceLogo, iaLabsLogo, nvibeLogo  } from "~/assets/images/media";
 
@@ -258,19 +260,7 @@ const Home: NextPage = () => {
 
         </div>
       {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
-        <footer className="flex flex-row justify-between py-8 bg-soundscape-dark-grey text-soundscape-white
-                          2xl:px-16 xl:px-16 lg:px-16 md:px-16 sm:px-8 xs:px-8">
-          <div className="flex flex-row">©{new Date().getFullYear()} Soundscape for Everyone</div>
-          <div className="2xl:flex xl:flex lg:hidden m:hidden sm:hidden xs:hidden"> 
-            { HeaderLinks.map((link, index) => {
-              return (
-                <Link className="flex h-10 w-auto text-soundscape-white text-center items-center text-base px-4 mx-3 cursor-pointer rounded-header-btn hover:bg-soundscape-dark-blue " href="/" key={index} onClick={notifyPageMissing}>
-                  {link}
-                </Link>
-              )
-            })}
-          </div>
-        </footer>
+        <Footer headerLinks={HeaderLinks} notifyPageMissing={notifyPageMissing}/>
       </main>
     </>
   );
