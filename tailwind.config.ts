@@ -5,11 +5,12 @@ export default {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
-      'mobile': '320',
+      'mobile': '320px',
       'tablet': '640px',
+      's-laptop': '768px',
       'laptop': '1024px',
       'desktop': '1280px',
-      'xl-screen': '1536px',
+      'tv': '1536px',
       xs: '320px',
       sm: '640px',
       md: '768px',
@@ -57,6 +58,16 @@ export default {
 
     },
     colors: {
+      'white': '#FFFFFF',
+      'navy-blue': '#243A66',
+      'cyan-blue': '#4DD1FF',
+      'dark-blue': '#0F1F38',
+      'orange': '#FF5B00',
+      'dark-grey': '#4b5364',
+      'pale-bg': '#FFFFFF1A',
+      'navy-blue-bg': '#243A66',
+      'light-grey-bg': '#EDEFF3',
+      'grey-bg': '#DEE1E5',
       'soundscape-white': '#FFFFFF',
       'soundscape-blue': '#243A66',
       'soundscape-bright-blue': '#4DD1FF',
