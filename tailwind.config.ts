@@ -62,7 +62,7 @@ export default {
       'navy-blue': '#243A66',
       'cyan-blue': '#4DD1FF',
       'dark-blue': '#0F1F38',
-      'orange': '#FF5B00',
+      'orange': '#b24000',
       'dark-grey': '#4b5364',
       'pale-bg': '#FFFFFF1A',
       'navy-blue-bg': '#243A66',
