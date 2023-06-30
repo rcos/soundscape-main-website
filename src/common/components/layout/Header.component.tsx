@@ -1,19 +1,23 @@
 import React from 'react';
+import { useState } from "react";
 import { HiMenu, HiOutlineX } from "react-icons/hi";
 import Link from "next/link";
 import Image from 'next/image'
-import { altImage } from '~/utils/type';
+import {ssLogoImg} from "~/assets/images/media";
 
 interface FooterProps {
   headerLinks: string[];
-  headerHrefs: string[];
-  showNavDropdown: boolean;
-  ssLogoImg: altImage;
-  handleDropdownClick: (value:boolean) => void;
   notifyPageMissing: () => void;
 }
 
-const MainHeader: React.FC <FooterProps> = ({headerLinks, headerHrefs, showNavDropdown,ssLogoImg,handleDropdownClick,notifyPageMissing}) => {
+const MainHeader: React.FC <FooterProps> = ({headerLinks,notifyPageMissing}) => {
+  const [showNavDropdown, setShowNavDropdown] = useState(false);
+  const headerHrefs = [ 'https://ialabs.ie/privacy-policy/', '/how-to-contribute' ]
+
+  function handleDropdownClick(value: boolean) {
+    setShowNavDropdown(value)
+  }
+
   return (
     <>
     <header className="flex h-header w-full fixed top-0 left-0 z-50 py-4 items-center justify-between bg-soundscape-blue-bg 
