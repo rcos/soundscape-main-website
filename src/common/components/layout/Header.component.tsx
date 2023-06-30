@@ -5,12 +5,12 @@ import Link from "next/link";
 import Image from 'next/image'
 import {ssLogoImg} from "~/assets/images/media";
 
-interface FooterProps {
+interface HeaderProps {
   headerLinks: string[];
   notifyPageMissing: () => void;
 }
 
-const MainHeader: React.FC <FooterProps> = ({headerLinks,notifyPageMissing}) => {
+const MainHeader: React.FC <HeaderProps> = ({headerLinks,notifyPageMissing}) => {
   const [showNavDropdown, setShowNavDropdown] = useState(false);
   const headerHrefs = [ 'https://ialabs.ie/privacy-policy/', '/how-to-contribute' ]
 
