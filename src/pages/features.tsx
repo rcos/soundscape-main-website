@@ -73,7 +73,23 @@ const Features: NextPage = () => {
           </div>
         </div>
       {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
-        
+        <div className="flex flex-col w-full h-auto bg-light-grey-bg py-28 
+                          tv:px-20 desktop:px-20 laptop:px-20 s-laptop:px-20 tablet:px-10 mobile:px-10">
+          <div className="flex flex-row flex-wrap w-full h-auto">
+            <div className="flex justify-center desktop:basis-5/12 laptop:basis-full s-laptop:basis-full tablet-basis:full laptop:pb-6 s-laptop:pb-6 tablet:pb-6 mobile:pb-6 pr-10">
+              <Image className ="h-phone w-fit" src={ssStreetPrevImg.src} alt={ssStreetPrevImg.alt}></Image>
+            </div>
+            <div className="flex flex-col desktop:basis-7/12 laptop:basis-full s-laptop:basis-full tablet-basis:full desktop:pl-4 py-6 gap-6">
+                <h2 className="section-title-light-navy-blue w-fit bg-transparent py-2 font-semibold text-light-navy-blue text-3xl ">Soundscape Street Preview</h2>
+                <p className="font-work-sans text-navy-blue font-normal text-xl leading-8  mr-16">
+                  Soundscape Street Preview breaks fresh ground for Soundscape by providing an innovative tool for virtually exploring the world! With it, you can select any location in the world to preview the area at street level in order to familiarize and build a mental map of the space.
+                  <br/><br/>
+                  Soundscape Street Preview will help enrich your awareness of familiar places, and help you explore and discover new and unfamiliar places!
+                </p>
+                <button className="h-auto w-fit bg-navy-blue rounded-primary-btn px-16 py-3 text-white text-laptop font-semibold" onClick={redirectToLink}>Watch the video</button> 
+            </div>
+          </div>
+        </div>
       </main>
     </>
   )
