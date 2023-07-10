@@ -33,6 +33,7 @@ export default {
       fontSize: {
         'hero-title': '2.75rem',
         'hero-title-sub': '1.75rem',
+        'features-title': '2.5rem',
       },
       margin: {
         'header-gap': '95px',
@@ -59,9 +60,11 @@ export default {
     },
     colors: {
       'white': '#FFFFFF',
+      'light-navy-blue': '#1F4B8F',
       'navy-blue': '#243A66',
       'cyan-blue': '#4DD1FF',
       'dark-blue': '#0F1F38',
+      'dark-gray-blue': '#9DB0CE',
       'orange': '#b24000',
       'dark-grey': '#4b5364',
       'pale-bg': '#FFFFFF1A',

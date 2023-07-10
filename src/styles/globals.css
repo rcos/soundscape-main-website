@@ -30,6 +30,38 @@ body {
     background-color: #243A66;
 }
 
+.section-title-light-navy-blue {
+    position: relative;
+}
+
+
+.section-title-light-navy-blue::after {
+    position: absolute;
+    content: '';
+    top: -5px;
+    left: 0;
+    height: 5px;
+    width: 60px;
+
+    background-color: #1F4B8F;
+}
+
+.section-title-orange2 {
+    position: relative;
+}
+
+
+.section-title-orange2::after {
+    position: absolute;
+    content: '';
+    top: -32px;
+    left: 0;
+    height: 5px;
+    width: 60px;
+
+    background-color: #B24000;
+}
+
 .section-title-orange {
     position: relative;
 }
