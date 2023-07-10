@@ -1,5 +1,4 @@
 import { type NextPage } from "next";
-import { useRouter } from 'next/router';
 import { useEffect,useState } from "react";
 import Head from "next/head";
 import Image from 'next/image';
@@ -19,11 +18,10 @@ const notifyFuncMissing = () => toast('This functionaility is coming soon!');
 const Features: NextPage = () => {
   const HeaderLinks = [ 'Privacy Policy', /*'How to Contribute' /*'Home', 'Features', 'About', 'Support', 'People', 'News & Features'*/];
   const [initialRenderComplete, setInitialRenderComplete] = useState(false);
-  const router = useRouter();
 
-  const redirectToLink = () => {
-    router.push('https://www.youtube.com/embed/et6FlZXfBvM');
-  };
+  function redirectToLink(){
+    window.open( "https://www.youtube.com/embed/et6FlZXfBvM",'_blank')
+  }
 
   useEffect(() => {
    setInitialRenderComplete(true);
