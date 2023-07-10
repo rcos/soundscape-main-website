@@ -9,7 +9,7 @@ import MainHeader from "@/layout/Header.component";
 
 import toast, { Toaster } from 'react-hot-toast';
 
-import {ftHeroBGImg, ssStreetPrevImg} from "~/assets/images/media";
+import {ftHeroBGImg, ssStreetPrevImg, ftFeat1Img, ftFeat2Img, ftFeat3Img} from "~/assets/images/media";
 import ReactPlayer from 'react-player'
 
 
@@ -76,10 +76,10 @@ const Features: NextPage = () => {
         <div className="flex flex-col w-full h-auto bg-light-grey-bg py-28 
                           tv:px-20 desktop:px-20 laptop:px-20 s-laptop:px-20 tablet:px-10 mobile:px-10">
           <div className="flex flex-row flex-wrap w-full h-auto">
-            <div className="flex justify-center desktop:basis-5/12 laptop:basis-full s-laptop:basis-full tablet-basis:full laptop:pb-6 s-laptop:pb-6 tablet:pb-6 mobile:pb-6 pr-10">
+            <div className="flex justify-center desktop:basis-5/12 laptop:basis-full s-laptop:basis-full tablet-basis:full laptop:pb-6 s-laptop:pb-6 tablet:pb-6 mobile:pb-6 pr-10 pt-4">
               <Image className ="h-phone w-fit" src={ssStreetPrevImg.src} alt={ssStreetPrevImg.alt}></Image>
             </div>
-            <div className="flex flex-col desktop:basis-7/12 laptop:basis-full s-laptop:basis-full tablet-basis:full desktop:pl-4 py-6 gap-6">
+            <div className="flex flex-col desktop:basis-7/12 laptop:basis-full s-laptop:basis-full tablet-basis:full desktop:pl-4 py-6 gap-6 pt-8">
                 <h2 className="section-title-light-navy-blue w-fit bg-transparent py-2 font-semibold text-light-navy-blue text-3xl ">Soundscape Street Preview</h2>
                 <p className="font-work-sans text-navy-blue font-normal text-xl leading-8  mr-16">
                   Soundscape Street Preview breaks fresh ground for Soundscape by providing an innovative tool for virtually exploring the world! With it, you can select any location in the world to preview the area at street level in order to familiarize and build a mental map of the space.
@@ -87,6 +87,36 @@ const Features: NextPage = () => {
                   Soundscape Street Preview will help enrich your awareness of familiar places, and help you explore and discover new and unfamiliar places!
                 </p>
                 <button className="h-auto w-fit bg-navy-blue rounded-primary-btn px-16 py-3 text-white text-laptop font-semibold" onClick={redirectToLink}>Watch the video</button> 
+            </div>
+          </div>
+        </div>
+        {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
+        <div className="flex flex-col w-full h-auto bg-navy-blue py-28 
+                         tv:px-20 desktop:px-20 laptop:px-20 s-laptop:px-20 tablet:px-10 mobile:px-10">
+          <div className="flex flex-row py-8">
+            <div className="desktop:basis-4/12 laptop:basis-full s-laptop:basis-full tablet-basis:full">
+              <h2 className="section-title-white w-fit bg-transparent pb-2 pt-4 font-semibold text-white text-3xl leading-10">Explore the world from the comfort of your sofa</h2>
+            </div>
+          </div>
+          <div className="flex flex-row pb-16">
+            <div className="desktop:basis-8/12 laptop:basis-full s-laptop:basis-full tablet-basis:full">
+              <p className="font-normal text-xl leading-8 text-white">
+                When people have more ambient information, they naturally and intuitively create better mental maps, so they can explore more and feel more comfortable and connected in new environments. Soundscape provides spatial information everywhere you go and adds functionality to existing navigation systems.        
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-row flex-wrap justify-between w-full h-auto py-5">
+            <div className="flex flex-col basis-96 h-auto"> 
+              <Image className="w-fill" src={ftFeat1Img.src} alt={ftFeat1Img.alt}/>
+              <p className="pt-4 font-medium text-base leading-6 text-dark-gray-blue">Grow your awareness and discover new places.</p>
+            </div>
+            <div className="flex flex-col basis-96 h-auto"> 
+              <Image className="w-fill" src={ftFeat2Img.src} alt={ftFeat2Img.alt} />
+              <p className="pt-4 font-medium text-base leading-6 text-dark-gray-blue">Enrich your experience of familiar places and confidently explore the unfamiliar.</p>
+            </div>
+            <div className="flex flex-col basis-96 h-auto"> 
+              <Image className="w-fill" src={ftFeat3Img.src} alt={ftFeat3Img.alt} />
+              <p className="pt-4 font-medium text-base leading-6 text-dark-gray-blue">Run it in the background for a rich ambient experience.</p>
             </div>
           </div>
         </div>
