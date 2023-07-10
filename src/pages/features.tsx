@@ -9,7 +9,7 @@ import MainHeader from "@/layout/Header.component";
 
 import toast, { Toaster } from 'react-hot-toast';
 
-import {ftHeroBGImg, ssStreetPrevImg, ftFeat1Img, ftFeat2Img, ftFeat3Img} from "~/assets/images/media";
+import {ftHeroBGImg, ssStreetPrevImg, ftFeat1Img, ftFeat2Img, ftFeat3Img, sAudoFtImg, beaconFtImg, locationFtImg, wayFindingFtImg, bgAppFtImg, mapFtImg} from "~/assets/images/media";
 import ReactPlayer from 'react-player'
 
 
@@ -120,6 +120,56 @@ const Features: NextPage = () => {
             </div>
           </div>
         </div>
+        {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
+        <div className="flex flex-col w-full h-auto bg-white py-28 
+                        tv:px-20 desktop:px-20 laptop:px-20 s-laptop:px-20 tablet:px-10 mobile:px-10">
+          <div className="flex flex-row flex-wrap justify-around w-full h-auto">
+            <div className="flex flex-col basis-96 h-auto py-10">
+              <div className="flex items-center justify-center h-48">
+                <Image className="w-36" src={sAudoFtImg.src} alt={sAudoFtImg.alt}/>
+              </div>
+              <h4 className="w-fit bg-transparent py-6 font-semibold text-orange text-xl" >What is spatial audio?</h4>
+              <p className="font-work-sans text-navy-blue">Soundscape calls out landmarks in relation to you, letting you connect with your environment naturally and more intuitively without getting in the way of what you’re doing or who you’re with.</p>
+            </div>
+            <div className="flex flex-col basis-96 h-auto py-10"> 
+              <div className="flex justify-center items-center h-48">
+                  <Image className="w-max" src={beaconFtImg.src} alt={beaconFtImg.alt}/>
+              </div> 
+              <h4 className="w-fit bg-transparent py-6 font-semibold text-orange text-xl" >Setting a beacon</h4>
+              <p className="font-work-sans text-navy-blue">Once you set the audio beacon to a destination, you can put the phone away and walk. Soundscape will call out roads and intersections through your headphones, putting you in control of how you want to get there.</p>
+            </div>
+            <div className="flex flex-col basis-96 h-auto py-10"> 
+              <div className="flex justify-center items-center h-48">
+                  <Image className="w-9/12" src={locationFtImg.src} alt={locationFtImg.alt}/>
+              </div> 
+              <h4 className="w-fit bg-transparent py-6 font-semibold text-orange text-xl" >What is spatial audio?</h4>
+              <p className="font-work-sans text-navy-blue">My Location, Around Me, and Ahead of Me buttons help build a picture of where you are and what’s around you. “Around Me” will call out four points of interest in a 360-degree sweep, and “Ahead of Me” calls out five items in front of you.</p>
+            </div>
+            <div className="flex flex-col basis-96 h-auto py-10">
+              <div className="flex items-center justify-center h-48">
+                <Image className="w-8/12" src={wayFindingFtImg.src} alt={wayFindingFtImg.alt}/>
+              </div>
+              <h4 className="w-fit bg-transparent py-6 font-semibold text-orange text-xl" >Wayfinding</h4>
+              <p className="font-work-sans text-navy-blue">Unlike step-by-step instructions, sounds guide you a more natural way to move through spaces and find places on your own terms.</p>
+            </div>
+            <div className="flex flex-col basis-96 h-auto py-10"> 
+              <div className="flex justify-center items-center h-48">
+                  <Image className="w-max" src={bgAppFtImg.src} alt={bgAppFtImg.alt}/>
+              </div> 
+              <h4 className="w-fit bg-transparent py-6 font-semibold text-orange text-xl" >Running in the background</h4>
+              <p className="font-work-sans text-navy-blue">Soundscape can be used as a stand-alone app, or it can complement other navigational aids by running in the background, helping build a richer ambient awareness of your surroundings.</p>
+            </div>
+            <div className="flex flex-col basis-96 h-auto py-10"> 
+              <div className="flex justify-center items-center h-48">
+                  <Image className="w-5/12" src={mapFtImg.src} alt={mapFtImg.alt}/>
+              </div> 
+              <h4 className="w-fit bg-transparent py-6 font-semibold text-orange text-xl" >OpenStreetMap</h4>
+              <p className="font-work-sans text-navy-blue">Soundscape uses OpenStreetMap data, which is a rich and constantly enhanced community-generated mapping platform.</p>
+            </div>
+          </div>
+        </div>
+      {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
+      <Footer headerLinks={HeaderLinks} notifyPageMissing={notifyPageMissing}/>
       </main>
     </>
   )

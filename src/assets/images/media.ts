@@ -110,43 +110,51 @@ export const ftHeroBGImg: altImage = {
 };
 
 export const sAudoFtImg: altImage = {
-  src: sAudoFt ,
+  src: sAudoFt,
   alt: "",
 };
+
 export const beaconFtImg: altImage = {
-  src: beaconFt ,
+  src: beaconFt,
   alt: "",
 };
 
 export const wayFindingFtImg: altImage = {
-  src: wayFindingFt ,
+  src: wayFindingFt,
   alt: "",
 };
+
 export const bgAppFtImg: altImage = { 
-  src: bgAppFt ,
+  src: bgAppFt,
   alt: "",
 };
+
 export const locationFtImg: altImage = {
-  src: locationFt ,  
+  src: locationFt,  
   alt: "",
 };
+
 export const mapFtImg: altImage = {
-  src: mapFt ,
+  src: mapFt,
   alt: "",
 };
+
 export const ssStreetPrevImg: altImage = { 
-  src: ssStreetPrev ,
+  src: ssStreetPrev,
   alt: "",
 };
+
 export const ftFeat1Img: altImage = {
-  src: ftFeat1 ,  
+  src: ftFeat1,  
   alt: "",
 };
+
 export const ftFeat2Img: altImage = {
-  src: ftFeat2 ,
+  src: ftFeat2,
   alt: "",
 };
+
 export const ftFeat3Img: altImage = {
-  src: ftFeat3 ,
+  src: ftFeat3,
   alt: "",
 };
