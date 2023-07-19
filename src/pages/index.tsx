@@ -80,7 +80,7 @@ const Home: NextPage = () => {
               </h2>
               <p className="font-work-sans font-normal w-full text-left text-white 
                             tv:text-3xl desktop:text-3xl laptop:text-2xl  s-laptop:text-2xl  tablet:text-2xl  mobile:text-2xl">
-                Explore, discover, and have fun with your own 3D sound map of the word!
+                Explore, discover, and have fun with your own 3D sound map of the world!
               </p>
               <button className="h-auto w-fit bg-orange rounded-primary-btn px-16 py-4 text-white text-lg font-semibold" onClick={handleDonationClick} >Donate</button>
           </div>
@@ -219,10 +219,10 @@ const Home: NextPage = () => {
           <div className="flex w-full gap-16
                           tv:flex-row desktop:flex-row laptop:flex-row s-laptop:flex-row tablet:flex-col mobile:flex-col">  
             <div className="flex tv:w-1/2 desktop:w-1/2 laptop:w-1/2 s-laptop:w-1/2 tablet:w-full mobile:w-full ">
-              <p>Microsoft Soundscape is not designed, intended or made available for diagnosis, treatment, or prevention of diseases and for use as a mobility aid or medical device; and is not designed or intended to be a substitute for professional medical advice, diagnosis, treatment, or judgement and should not be used to replace or as a substitute for professional </p>
+              <p>Soundscape is not designed, intended or made available for diagnosis, treatment, or prevention of diseases and for use as a mobility aid or medical device; and is not designed or intended to be a substitute for professional medical advice, diagnosis, treatment, or judgement and should not be used to replace or as a substitute for professional </p>
             </div>
             <div className="flex tv:w-1/2 desktop:w-1/2 laptop:w-1/2 s-laptop:w-1/2 tablet:w-full mobile:w-full ">
-              <p>medical advice, diagnosis, treatment, or judgement. The mapping data incorporated into the Microsoft Soundscape program is captured from a third-party program, and therefore, there may be limitations with the accuracy of the information presented and the user is responsible for their actions and their own safety and well-being.</p>
+              <p>medical advice, diagnosis, treatment, or judgement. The mapping data incorporated into the Soundscape program is captured from a third-party program, and therefore, there may be limitations with the accuracy of the information presented and the user is responsible for their actions and their own safety and well-being.</p>
             </div>
           </div>
 
