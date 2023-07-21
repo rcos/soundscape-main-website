@@ -43,7 +43,7 @@ const MainHeader: React.FC <FooterProps> = ({headerLinks, headerHrefs, showNavDr
                            2xl:px-8 xl:px-8 lg:px-8 md:px-8 sm:px-4 xs:px-4 2xl:hidden xl:hidden lg:flex m:flex sm:flex xs:flex"  style={{ boxShadow: '0 15px 25px #222' }}> 
             { headerLinks.map((element, index) => {
               return (
-                <Link className={`flex h-10 w-fill-available text-stone-200 text-left text-xl font-bold items-center py-12 px-8 mx-3 cursor-pointer hover:text-soundscape-orange 
+                <Link className={`flex h-10 w-fill-available text-stone-200 text-left text-xl font-bold items-center py-12 px-8 mx-3 cursor-pointer hover:text-orange 
                                   ${ index === 0 ? '' : 'border-t-2 border-t-stone-200' }`} href={headerHrefs[index] as string} onClick={notifyPageMissing} key={index}>
                   {element}
                 </Link>
