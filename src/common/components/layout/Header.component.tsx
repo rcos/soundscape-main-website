@@ -22,14 +22,14 @@ const MainHeader: React.FC <FooterProps> = ({headerLinks, headerHrefs, showNavDr
             <Image className="h-full w-auto" src={ssLogoImg.src} height={0} width={0} alt={ssLogoImg.alt}/>
             <div className="flex-col w-auto px-4
                             2xl:flex xl:flex lg:flex md:flex sm:flex xs:hidden">
-              <h1 className="w-full text-center text-soundscape-white text-2xl">Soundscape</h1>
-              <h5 className="w-full text-center text-soundscape-white text-sm">for Everyone</h5>
+              <h1 className="w-full text-center text-white text-2xl">Soundscape</h1>
+              <h5 className="w-full text-center text-white text-sm">for Everyone</h5>
             </div>
           </div>
           <div className="2xl:flex xl:flex lg:hidden m:hidden sm:hidden xs:hidden"> 
             { headerLinks.map((element, index) => {
               return (
-                <Link className="flex h-10 w-auto text-soundscape-white text-center items-center text-base px-4 mx-3 cursor-pointer rounded-header-btn hover:bg-soundscape-white hover:text-soundscape-dark-blue " href={headerHrefs[index] as string} onClick={notifyPageMissing} key={index}>
+                <Link className="flex h-10 w-auto text-white text-center items-center text-base px-4 mx-3 cursor-pointer rounded-header-btn hover:bg-white hover:text-soundscape-dark-blue " href={headerHrefs[index] as string} onClick={notifyPageMissing} key={index}>
                   {element}
                 </Link>
               )
