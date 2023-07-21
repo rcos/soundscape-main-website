@@ -29,7 +29,7 @@ const MainHeader: React.FC <FooterProps> = ({headerLinks, headerHrefs, showNavDr
           <div className="2xl:flex xl:flex lg:hidden m:hidden sm:hidden xs:hidden"> 
             { headerLinks.map((element, index) => {
               return (
-                <Link className="flex h-10 w-auto text-white text-center items-center text-base px-4 mx-3 cursor-pointer rounded-header-btn hover:bg-white hover:text-soundscape-dark-blue " href={headerHrefs[index] as string} onClick={notifyPageMissing} key={index}>
+                <Link className="flex h-10 w-auto text-white text-center items-center text-base px-4 mx-3 cursor-pointer rounded-header-btn hover:bg-white hover:text-dark-blue " href={headerHrefs[index] as string} onClick={notifyPageMissing} key={index}>
                   {element}
                 </Link>
               )

@@ -14,7 +14,7 @@ const Footer: React.FC <FooterProps> = ({headerLinks,notifyPageMissing}) => {
           <div className="2xl:flex xl:flex lg:hidden m:hidden sm:hidden xs:hidden"> 
             { headerLinks.map((link, index) => {
               return (
-                <Link className="flex h-10 w-auto text-white text-center items-center text-base px-4 mx-3 cursor-pointer rounded-header-btn hover:bg-soundscape-dark-blue " href="/" key={index} onClick={notifyPageMissing}>
+                <Link className="flex h-10 w-auto text-white text-center items-center text-base px-4 mx-3 cursor-pointer rounded-header-btn hover:bg-dark-blue " href="/" key={index} onClick={notifyPageMissing}>
                   {link}
                 </Link>
               )
