@@ -39,7 +39,7 @@ const MainHeader: React.FC <FooterProps> = ({headerLinks, headerHrefs, showNavDr
           {!!showNavDropdown && <HiOutlineX className="2xl:hidden xl:hidden lg:flex md:flex sm:flex xs:flex" style={{ 'cursor': 'pointer'}} color="white" size={"2.5rem"}  onClick={() => { handleDropdownClick(false)}} /> }
       
         </header>
-        { !!showNavDropdown && <div className="flex flex-col h-auto w-full fixed top-h-header left-0 z-50 py-4 items-center justify-between bg-soundscape-white
+        { !!showNavDropdown && <div className="flex flex-col h-auto w-full fixed top-h-header left-0 z-50 py-4 items-center justify-between bg-white
                            2xl:px-8 xl:px-8 lg:px-8 md:px-8 sm:px-4 xs:px-4 2xl:hidden xl:hidden lg:flex m:flex sm:flex xs:flex"  style={{ boxShadow: '0 15px 25px #222' }}> 
             { headerLinks.map((element, index) => {
               return (
