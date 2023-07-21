@@ -16,7 +16,7 @@ interface FooterProps {
 const MainHeader: React.FC <FooterProps> = ({headerLinks, headerHrefs, showNavDropdown,ssLogoImg,handleDropdownClick,notifyPageMissing}) => {
   return (
     <>
-    <header className="flex h-header w-full fixed top-0 left-0 z-50 py-4 items-center justify-between bg-soundscape-blue-bg 
+    <header className="flex h-header w-full fixed top-0 left-0 z-50 py-4 items-center justify-between bg-navy-blue-bg 
                            2xl:px-16 xl:px-16 lg:px-16 md:px-16 sm:px-8 xs:px-8"  style={{ boxShadow: '0 0px 15px #000' }}> 
           <div className="flex h-full w-auto">
             <Image className="h-full w-auto" src={ssLogoImg.src} height={0} width={0} alt={ssLogoImg.alt}/>
