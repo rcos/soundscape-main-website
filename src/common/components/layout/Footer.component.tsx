@@ -8,7 +8,7 @@ interface FooterProps {
 
 const Footer: React.FC <FooterProps> = ({headerLinks,notifyPageMissing}) => {
   return (
-    <footer className="flex flex-row justify-between py-8 bg-soundscape-dark-grey text-white
+    <footer className="flex flex-row justify-between py-8 bg-dark-grey text-white
                           2xl:px-16 xl:px-16 lg:px-16 md:px-16 sm:px-8 xs:px-8">
           <div className="flex flex-row">©{new Date().getFullYear()} Soundscape for Everyone</div>
           <div className="2xl:flex xl:flex lg:hidden m:hidden sm:hidden xs:hidden"> 
