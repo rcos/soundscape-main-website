@@ -8,7 +8,6 @@ import { api } from "~/utils/api";
 
 import Footer from "@/layout/Footer.component";
 import MainHeader from "@/layout/Header.component";
-import Features from "./features";
 
 import { ssLogoImg, adidasLogoImg, heroBgImg, iphone14Img, groupIntroImg, features1Img, features2Img, features3Img,
         rpiLogo, crnaLogo, okeeneaLogo, ncbiLogo, pixelspaceLogo, iaLabsLogo, nvibeLogo  } from "~/assets/images/media";
@@ -32,9 +31,6 @@ const notifyFuncMissing = () => toast('This functionaility is coming soon!');
 } test*/
 
 const Home: NextPage = () => {
-  const router = useRouter();
-  const { pathname } = router;
-  {pathname === '/features' && <Features />}
   //const hello = api.example.hello.useQuery({ text: "from tRPC" });
 
 
