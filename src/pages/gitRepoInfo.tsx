@@ -17,7 +17,7 @@ const GitRepoInfo: NextPage = () => {
   const notifyPageMissing = () => toast('This page is coming soon!');
   const HeaderLinks = [ 'Privacy Policy', /*'How to Contribute' /*'Home', 'Features', 'About', 'Support', 'People', 'News & Features'*/];
 
-  const fetchRepoInfo = async () => {
+  const fetchRepoInfo = async () => { 
 
     const octokit = new Octokit({
       auth: process.env.GITHUB_ACCESS_TOKEN,
@@ -134,7 +134,7 @@ const GitRepoInfo: NextPage = () => {
             <div className="flex flex-col desktop:basis-1/2 laptop:basis-full s-laptop:basis-full tablet-basis:full py-12 gap-6">
               <h2 className="section-title-orange2 w-fit bg-transparent py-2 font-semibold leading-normal text-orange text-features-title">Contributors</h2>
               <p className="font-work-sans text-dark-grey text-xl leading-8">
-                  All these amazing contributors made this possible. Come join our community on GitHub!
+                  All these amazing contributors made this possible. Come join our community on <a href="https://github.com/rcos/soundscape-main-website" className="underline" >GitHub</a>!
               </p>
               <div className="grid grid-cols-5">
                   {contributors.map((user) => (
@@ -147,7 +147,24 @@ const GitRepoInfo: NextPage = () => {
                   ))}
               </div>
             </div> 
+            <div className="flex flex-col desktop:basis-1/2 laptop:basis-full s-laptop:basis-full tablet-basis:full pt-36 gap-6 w-full h-80 overflow-y-auto">
+              {topContributors.map((contributor) => (
+                <div key={contributor.login} className="flex items-center mb-2">
+                  <img
+                    src={contributor.avatar_url}
+                    alt={contributor.login}
+                    className="w-8 h-8 rounded-full mr-2"
+                  />
+                  <div>
+                    <p>{contributor.login}</p>
+                    <p>Lines Added: {contributor.additions}</p>
+                    <p>Lines Deleted: {contributor.deletions}</p>
+                  </div>
+                </div>
+              ))}
+            </div>        
           </div>
+          
         </div>
         <Footer headerLinks={HeaderLinks} notifyPageMissing={notifyPageMissing}/>
       </main>
