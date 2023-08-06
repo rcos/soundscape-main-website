@@ -70,6 +70,25 @@ const GitRepoInfo: NextPage = () => {
               }
             })
           const filesChanged = commitResponse.data.stats;
+          const contributorLogin = commitResponse.data.author.login;
+
+          // Check if the contributor is one of the top contributors
+          const isTopContributor = topContributors.some((contributor) => contributor.login === contributorLogin);
+          // If the contributor is one of the top contributors, update their state
+          if (isTopContributor) {
+            setTopContributors((prevContributors) =>
+              prevContributors.map((contributor) => {
+                if (contributor.login === contributorLogin) {
+                  return {
+                    ...contributor,
+                    linesAdded: (contributor.linesAdded ? contributor.linesAdded : 0) + filesChanged.additions,
+                    linesDeleted: (contributor.linesDeleted ? contributor.linesDeleted : 0) + filesChanged.deletions,
+                  };
+                }
+                return contributor;
+              })
+            );
+          }
           setLinesAdded((prev)=>prev+filesChanged.additions);
           setLinesDeleted((prev)=>prev+filesChanged.deletions);
         }
@@ -128,10 +147,64 @@ const GitRepoInfo: NextPage = () => {
             </ol>
           </div>
         </div>
-        <div className="flex w-full h-auto bg-white py-28
+        <div className="flex flex-col w-full h-auto bg-white py-28 
+  tv:px-20 desktop:px-20 laptop:px-20 s-laptop:px-20 tablet:px-10 mobile:px-10">
+
+  <h2 className="section-title-orange2 w-fit bg-transparent py-2 font-semibold leading-normal text-orange text-features-title">Top Contributors</h2>
+
+  <div className="flex justify-center items-end mb-12 bg-soundscape-blue-bg p-12 rounded-lg">
+    {[1, 0, 2].map(index => {
+      const contributor = topContributors[index];
+      return (
+        <div key={contributor.login}
+             className={`flex flex-col items-center justify-center 
+                        ${index === 0 ? 'w-48 h-48' : 'w-40 h-40'} 
+                        mx-6 py-6 rounded-lg shadow-lg relative`}>
+          <img
+            src={contributor.avatar_url}
+            alt={contributor.login}
+            className={`${index === 0 ? 'w-24 h-24' : 'w-20 h-20'} rounded-full mb-2 border-4 border-white`}
+          />
+          <div className={'w-10 h-10 rounded-full bg-indigo-200 flex items-center justify-center text-white text-2xl absolute -top-8'}>
+            {index+1}
+          </div>
+          <p className="font-bold text-lg leading-tight text-center text-white">{contributor.login}</p>
+          <p className="text-white text-sm mb-1 text-center">Lines Added: <span className="font-semibold">{contributor.linesAdded}</span></p>
+          <p className="text-white text-sm text-center">Lines Deleted: <span className="font-semibold">{contributor.linesDeleted}</span></p>
+        </div>
+      )
+    })}
+  </div>
+
+  <div className="flex flex-col">
+    {topContributors.slice(3).map((contributor, index) => (
+      <div key={contributor.login} className="flex items-center p-4 mb-4 bg-white shadow-lg rounded-lg">
+        <div className={`w-8 h-8 rounded-full bg-indigo-200 flex items-center justify-center text-white text-base mr-4`}>
+          {index+4}
+        </div>
+        <img
+          src={contributor.avatar_url}
+          alt={contributor.login}
+          className="w-16 h-16 rounded-full mr-4"
+        />
+        <div>
+          <p className="font-bold text-base leading-tight">{contributor.login}</p>
+          <p className="text-gray-600 text-sm mb-1">Lines Added: <span className="font-semibold">{contributor.linesAdded}</span></p>
+          <p className="text-gray-600 text-sm">Lines Deleted: <span className="font-semibold">{contributor.linesDeleted}</span></p>
+        </div>
+      </div>
+    ))}
+  </div>
+
+</div>
+
+
+
+
+        <div className="flex w-full h-auto bg-light-grey-bg py-28 
                         tv:px-20 desktop:px-20 laptop:px-20 s-laptop:px-20 tablet:px-10 mobile:px-10">
-          <div className="flex flex-row flex-wrap w-full h-auto">
-            <div className="flex flex-col desktop:basis-1/2 laptop:basis-full s-laptop:basis-full tablet-basis:full py-12 gap-6">
+          <div className="flex flex-row flex-wrap w-full h-auto items-center">
+            <div className=" flex flex-col desktop:basis-1/2 laptop:basis-full s-laptop:basis-full tablet-basis:full py-12 gap-6">
               <h2 className="section-title-orange2 w-fit bg-transparent py-2 font-semibold leading-normal text-orange text-features-title">Contributors</h2>
               <p className="font-work-sans text-dark-grey text-xl leading-8">
                   All these amazing contributors made this possible. Come join our community on <a href="https://github.com/rcos/soundscape-main-website" className="underline" >GitHub</a>!
@@ -146,23 +219,26 @@ const GitRepoInfo: NextPage = () => {
                       </a>
                   ))}
               </div>
-            </div> 
-            <div className="flex flex-col desktop:basis-1/2 laptop:basis-full s-laptop:basis-full tablet-basis:full pt-36 gap-6 w-full h-80 overflow-y-auto">
-              {topContributors.map((contributor) => (
-                <div key={contributor.login} className="flex items-center mb-2">
-                  <img
-                    src={contributor.avatar_url}
-                    alt={contributor.login}
-                    className="w-8 h-8 rounded-full mr-2"
-                  />
-                  <div>
-                    <p>{contributor.login}</p>
-                    <p>Lines Added: {contributor.additions}</p>
-                    <p>Lines Deleted: {contributor.deletions}</p>
+            </div>
+            <div className= "flex flex-col desktop:basis-1/2 laptop:basis-full s-laptop:basis-full tablet-basis:full gap-6 w-full h-80 items-center">
+              <p className="font-work-sans text-dark-grey text-xl leading-8">Over {linesAdded} lines added and {linesDeleted} deleted !</p>
+              <div className='overflow-y-auto'>
+                {topContributors.map((contributor) => (
+                  <div key={contributor.login} className="flex items-center mb-2">
+                    <img
+                      src={contributor.avatar_url}
+                      alt={contributor.login}
+                      className="w-8 h-8 rounded-full mr-2"
+                    />
+                    <div>
+                      <p className="font-bold font-work-sans text-dark-grey text-xl leading-8">{contributor.login}</p>
+                      <p className="font-work-sans text-dark-grey text-xl leading-8">Lines Added: {contributor.linesAdded}</p>
+                      <p className="font-work-sans text-dark-grey text-xl leading-8">Lines Deleted: {contributor.linesDeleted}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>        
+                ))}
+              </div>
+            </div>     
           </div>
           
         </div>
