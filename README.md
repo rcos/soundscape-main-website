@@ -26,3 +26,8 @@ You can check out the [create-t3-app GitHub repository](https://github.com/t3-os
 ## How do I deploy this?
 
 Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+
+After you have installed the necessary resources, you can create a .env file in the main repository, same area as this README.md. 
+Enter this line into the file: 
+    DATABASE_URL= 'mysql://yawx7asygj23d4h9sh0w:pscale_pw_XDvmFSivpt6YExy4BPu80WZyWmi3rSlzOZODU3becKi@aws.connect.psdb.cloud/soundscape?sslaccept=strict'
+Enter "npm run build" into the terminal and the code should run and the website should appear in localhost:3000.
