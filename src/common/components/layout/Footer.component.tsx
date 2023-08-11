@@ -8,13 +8,13 @@ interface FooterProps {
 
 const Footer: React.FC <FooterProps> = ({headerLinks,notifyPageMissing}) => {
   return (
-    <footer className="flex flex-row justify-between py-8 bg-soundscape-dark-grey text-soundscape-white
-                          2xl:px-16 xl:px-16 lg:px-16 md:px-16 sm:px-8 xs:px-8">
+    <footer className="flex flex-row justify-between py-8 bg-dark-grey text-white
+                          tv:px-16 desktop:px-16 laptop:px-16 s-laptop:px-16 tablet:px-8 mobile:px-8">
           <div className="flex flex-row">©{new Date().getFullYear()} Soundscape for Everyone</div>
-          <div className="2xl:flex xl:flex lg:hidden m:hidden sm:hidden xs:hidden"> 
+          <div className="tv:flex desktop:flex laptop:hidden m:hidden tablet:hidden mobile:hidden"> 
             { headerLinks.map((link, index) => {
               return (
-                <Link className="flex h-10 w-auto text-soundscape-white text-center items-center text-base px-4 mx-3 cursor-pointer rounded-header-btn hover:bg-soundscape-dark-blue " href="/" key={index} onClick={notifyPageMissing}>
+                <Link className="flex h-10 w-auto text-white text-center items-center text-base px-4 mx-3 cursor-pointer rounded-header-btn hover:bg-dark-blue " href="/" key={index} onClick={notifyPageMissing}>
                   {link}
                 </Link>
               )
