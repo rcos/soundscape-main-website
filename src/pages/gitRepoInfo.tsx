@@ -16,7 +16,38 @@ const GitRepoInfo: NextPage = () => {
 
   const notifyPageMissing = () => toast('This page is coming soon!');
   const HeaderLinks = [ 'Privacy Policy', /*'How to Contribute' /*'Home', 'Features', 'About', 'Support', 'People', 'News & Features'*/];
+  const fetchAllContributors = async (octokit: any, repoOwner: string, repoName: string) => {
+    let all_contributors: any[] = [];
+    let currentPage = 1;
+    const maxPerPage = 100; // maximum allowed by GitHub API
 
+    while (true) {
+      const response = await octokit.request(`GET /repos/${repoOwner}/${repoName}/contributors`, {
+        owner: repoOwner,
+        repo: repoName,
+        headers: {
+          'X-GitHub-Api-Version': '2022-11-28'
+        },
+        per_page: maxPerPage,
+        page: currentPage
+      });
+
+      if (response.status !== 200) {
+        console.error('API request failed with status:', response.status);
+        break;
+      }
+
+      all_contributors = all_contributors.concat(response.data);
+
+      if (response.data.length < maxPerPage) {
+        break;
+      }
+
+      currentPage++;
+    }
+
+    return all_contributors;
+  }
   const fetchRepoInfo = async () => { 
 
     const octokit = new Octokit({
@@ -24,27 +55,12 @@ const GitRepoInfo: NextPage = () => {
     })
     // contributors
     try {
-      const response = await octokit.request(`GET /repos/${repoOwner}/${repoName}/contributors`, {
-        owner: `${repoOwner}`,
-        repo: `${repoName}`,
-        headers: {
-          'X-GitHub-Api-Version': '2022-11-28'
-        }
-      })
-      if (response.status === 200) {
-        const data = response.data;
-        console.log(data)
-        setContributors(data);
-        // Set the top 10 contributors based on the number of contributions
-        setTopContributors(data.slice(0, 10));
-      } else {
-        // Handle non-200 status code
-        console.error('API request failed with status:', response.status);
-      } 
-
+      const contributorsData = await fetchAllContributors(octokit, repoOwner, repoName);
+      console.log(contributorsData);
+      setContributors(contributorsData);
+      setTopContributors(contributorsData.slice(0, 10));
     } catch (error) {
-      console.log("didnt word")
-      console.error(error);
+      console.error("Error fetching all contributors:", error);
     }
    // commits
    setLinesAdded(0)
@@ -210,25 +226,24 @@ const GitRepoInfo: NextPage = () => {
                 All these amazing contributors made this possible. Come join our community on <a href="https://github.com/rcos/soundscape-main-website" className="underline" >GitHub</a>!
             </p>
             <div className="flex flex-wrap">
-    {contributors.map((user) => (
-        <a 
-            key={user.id} 
-            href={user.html_url} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="ml-[-16px] relative z-10">
-            <img
-                src={user.avatar_url}
-                className="w-16 h-16 rounded-full cursor-pointer border-2 border-light-grey-bg"
-                alt="contributor"
-            />
-        </a>
-    ))}
-</div>
-
-        </div>     
-    </div>
-</div>
+                {contributors.map((user) => (
+                    <a 
+                        key={user.id} 
+                        href={user.html_url} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="ml-[-16px] relative z-10">
+                        <img
+                            src={user.avatar_url}
+                            className="w-16 h-16 rounded-full cursor-pointer border-2 border-light-grey-bg"
+                            alt="contributor"
+                        />
+                    </a>
+                ))}
+             </div>
+            </div>     
+          </div>
+     </div>
 
         </>:<></>}
         <Footer headerLinks={HeaderLinks} notifyPageMissing={notifyPageMissing}/>
