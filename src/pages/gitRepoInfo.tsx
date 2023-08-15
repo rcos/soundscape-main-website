@@ -48,6 +48,38 @@ const GitRepoInfo: NextPage = () => {
 
     return all_contributors;
   }
+    const fetchAllCommits = async (octokit: any, repoOwner: string, repoName: string) => {
+      let all_commits: any[] = [];
+      let currentPage = 1;
+      const maxPerPage = 100; // maximum allowed by GitHub API
+
+      while (true) {
+        const response = await octokit.request(`GET /repos/${repoOwner}/${repoName}/commits`, {
+          owner: repoOwner,
+          repo: repoName,
+          headers: {
+            'X-GitHub-Api-Version': '2022-11-28'
+          },
+          per_page: maxPerPage,
+          page: currentPage
+        });
+
+        if (response.status !== 200) {
+          console.error('API request failed with status:', response.status);
+          break;
+        }
+
+        all_commits = all_commits.concat(response.data);
+
+        if (response.data.length < maxPerPage) {
+          break;
+        }
+
+        currentPage++;
+      }
+
+      return all_commits;
+  };
   const fetchRepoInfo = async () => { 
 
     const octokit = new Octokit({
@@ -58,64 +90,69 @@ const GitRepoInfo: NextPage = () => {
       const contributorsData = await fetchAllContributors(octokit, repoOwner, repoName);
       console.log(contributorsData);
       setContributors(contributorsData);
-      setTopContributors(contributorsData.slice(0, 10));
+      setTopContributors(contributorsData.slice(0, 10).map(contributor => ({
+        ...contributor,
+        linesAdded: 0,
+        linesDeleted: 0
+      })));
     } catch (error) {
       console.error("Error fetching all contributors:", error);
     }
    // commits
-   setLinesAdded(0)
-   setLinesDeleted(0)
+    setLinesAdded(0);
+    setLinesDeleted(0);
+
     try {
-      const response = await octokit.request(`GET /repos/${repoOwner}/${repoName}/commits`, {
-        owner: `${repoOwner}`,
-        repo: `${repoName}`,
-        headers: {
-          'X-GitHub-Api-Version': '2022-11-28'
-        }
-      })
+      const commits = await fetchAllCommits(octokit, repoOwner, repoName);
+      
+      let tempTopContributors = [...topContributors];  // Make a copy of the current topContributors state
 
-      if (response.status === 200) {
-        const commits = response.data;
-
-        for (const commit of commits) {
+      for (const commit of commits) {
+        try {
           const commitResponse = await octokit.request(`GET /repos/${repoOwner}/${repoName}/commits/${commit.sha}`, {
-              owner: 'OWNER',
-              repo: 'REPO',
-              ref: 'REF',
-              headers: {
-                'X-GitHub-Api-Version': '2022-11-28'
-              }
-            })
-          const filesChanged = commitResponse.data.stats;
-          const contributorLogin = commitResponse.data.author.login;
+            owner: repoOwner,
+            repo: repoName,
+            headers: {
+              'X-GitHub-Api-Version': '2022-11-28'
+            }
+          });
 
-          // Check if the contributor is one of the top contributors
-          const isTopContributor = topContributors.some((contributor) => contributor.login === contributorLogin);
-          // If the contributor is one of the top contributors, update their state
-          if (isTopContributor) {
-            setTopContributors((prevContributors) =>
-              prevContributors.map((contributor) => {
-                if (contributor.login === contributorLogin) {
-                  return {
-                    ...contributor,
-                    linesAdded: (contributor.linesAdded ? contributor.linesAdded : 0) + filesChanged.additions,
-                    linesDeleted: (contributor.linesDeleted ? contributor.linesDeleted : 0) + filesChanged.deletions,
-                  };
-                }
-                return contributor;
-              })
-            );
+          if (commitResponse.status !== 200) {
+            console.error('API request for commit failed with status:', commitResponse.status);
+            continue; // go to the next iteration of the loop
           }
-          setLinesAdded((prev)=>prev+filesChanged.additions);
-          setLinesDeleted((prev)=>prev+filesChanged.deletions);
+
+          const filesChanged = commitResponse.data.stats;
+          const contributorLogin = commitResponse.data.author?.login; // Use optional chaining in case "author" is not present
+
+          // Update global lines added and deleted
+          setLinesAdded((prev) => prev + filesChanged.additions);
+          setLinesDeleted((prev) => prev + filesChanged.deletions);
+
+          // Update the temporary topContributors array
+          tempTopContributors = tempTopContributors.map((contributor) => {
+            if (contributor.login === contributorLogin) {
+              return {
+                ...contributor,
+                linesAdded: (contributor.linesAdded || 0) + filesChanged.additions,  // Ensure that linesAdded/linesDeleted has default value
+                linesDeleted: (contributor.linesDeleted || 0) + filesChanged.deletions,
+              };
+            }
+            return contributor;
+          });
+
+        } catch (innerError) {
+          console.error(`Error processing commit ${commit.sha}:`, innerError);
         }
-      } else {
-        // Handle non-200 status code
-        console.error('API request failed with status:', response.status);
       }
+
+      // Update the state once after all processing
+      setTopContributors(tempTopContributors);
+
     } catch (error) {
-      console.log(error);
+      console.log('Error fetching commits:', error);
     }
+
   };
 
   useEffect(()=>{
