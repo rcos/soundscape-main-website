@@ -1,163 +1,121 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Head from "next/head";
-import { type NextPage } from "next";
 import { Octokit } from '@octokit/core';
 import MainHeader from "@/layout/Header.component";
 import Footer from "@/layout/Footer.component";
 import toast from 'react-hot-toast';
 
-const GitRepoInfo: NextPage = () => {
-  const [repoOwner, setRepoOwner] = useState('rcos');
-  const [repoName, setRepoName] = useState('soundscape-main-website');
+const MAX_PER_PAGE = 100;  // maximum allowed by GitHub API
+const DEFAULT_REPO_OWNER = 'rcos';
+const DEFAULT_REPO_NAME = 'soundscape-main-website';
+const GITHUB_API_VERSION = '2022-11-28';
+
+const GitRepoInfo = () => {
+  const [repoOwner, setRepoOwner] = useState(DEFAULT_REPO_OWNER);
+  const [repoName, setRepoName] = useState(DEFAULT_REPO_NAME);
   const [contributors, setContributors] = useState<any[]>([]);
   const [topContributors, setTopContributors] = useState<any[]>([]);
   const [linesAdded, setLinesAdded] = useState(0);
   const [linesDeleted, setLinesDeleted] = useState(0);
 
-  const notifyPageMissing = () => toast('This page is coming soon!');
-  const HeaderLinks = [ 'Privacy Policy', /*'How to Contribute' /*'Home', 'Features', 'About', 'Support', 'People', 'News & Features'*/];
-  const fetchAllContributors = async (octokit: any, repoOwner: string, repoName: string) => {
-    let all_contributors: any[] = [];
+  const notifyPageMissing = useCallback(() => toast('This page is coming soon!'), []);
+  const HeaderLinks = ['Privacy Policy'];
+
+  const fetchData = async (octokit: any, repoOwner: string, repoName: string, dataType: string) => {
+    setLinesAdded(0);
+    setLinesDeleted(0);
+    let data: any[] = [];
     let currentPage = 1;
-    const maxPerPage = 100; // maximum allowed by GitHub API
 
     while (true) {
-      const response = await octokit.request(`GET /repos/${repoOwner}/${repoName}/contributors`, {
+      const response = await octokit.request(`GET /repos/${repoOwner}/${repoName}/${dataType}`, {
         owner: repoOwner,
         repo: repoName,
         headers: {
-          'X-GitHub-Api-Version': '2022-11-28'
+          'X-GitHub-Api-Version': GITHUB_API_VERSION
         },
-        per_page: maxPerPage,
+        per_page: MAX_PER_PAGE,
         page: currentPage
       });
 
       if (response.status !== 200) {
-        console.error('API request failed with status:', response.status);
+        console.error(`API request failed for ${dataType} with status:`, response.status);
         break;
       }
 
-      all_contributors = all_contributors.concat(response.data);
+      data = data.concat(response.data);
 
-      if (response.data.length < maxPerPage) {
+      if (response.data.length < MAX_PER_PAGE) {
         break;
       }
 
       currentPage++;
     }
 
-    return all_contributors;
-  }
-    const fetchAllCommits = async (octokit: any, repoOwner: string, repoName: string) => {
-      let all_commits: any[] = [];
-      let currentPage = 1;
-      const maxPerPage = 100; // maximum allowed by GitHub API
-
-      while (true) {
-        const response = await octokit.request(`GET /repos/${repoOwner}/${repoName}/commits`, {
-          owner: repoOwner,
-          repo: repoName,
-          headers: {
-            'X-GitHub-Api-Version': '2022-11-28'
-          },
-          per_page: maxPerPage,
-          page: currentPage
-        });
-
-        if (response.status !== 200) {
-          console.error('API request failed with status:', response.status);
-          break;
-        }
-
-        all_commits = all_commits.concat(response.data);
-
-        if (response.data.length < maxPerPage) {
-          break;
-        }
-
-        currentPage++;
-      }
-
-      return all_commits;
+    return data;
   };
-  const fetchRepoInfo = async () => { 
 
-    const octokit = new Octokit({
-      auth: process.env.GITHUB_ACCESS_TOKEN,
-    })
-    // contributors
+  const fetchRepoInfo = async () => { 
+    const octokit = new Octokit({ auth: process.env.GITHUB_ACCESS_TOKEN });
+
+    // Fetch contributors
+    let fetchedTopContributors = [];
     try {
-      const contributorsData = await fetchAllContributors(octokit, repoOwner, repoName);
-      console.log(contributorsData);
+      const contributorsData = await fetchData(octokit, repoOwner, repoName, "contributors");
       setContributors(contributorsData);
-      setTopContributors(contributorsData.slice(0, 10).map(contributor => ({
+      fetchedTopContributors = contributorsData.slice(0, 10).map(contributor => ({
         ...contributor,
         linesAdded: 0,
         linesDeleted: 0
-      })));
+      }));
     } catch (error) {
       console.error("Error fetching all contributors:", error);
     }
-   // commits
-    setLinesAdded(0);
-    setLinesDeleted(0);
 
+    // Fetch commits
     try {
-      const commits = await fetchAllCommits(octokit, repoOwner, repoName);
-      
-      let tempTopContributors = [...topContributors];  // Make a copy of the current topContributors state
+      const commits = await fetchData(octokit, repoOwner, repoName, "commits");
 
       for (const commit of commits) {
         try {
           const commitResponse = await octokit.request(`GET /repos/${repoOwner}/${repoName}/commits/${commit.sha}`, {
             owner: repoOwner,
             repo: repoName,
-            headers: {
-              'X-GitHub-Api-Version': '2022-11-28'
-            }
+            headers: { 'X-GitHub-Api-Version': GITHUB_API_VERSION }
           });
 
           if (commitResponse.status !== 200) {
             console.error('API request for commit failed with status:', commitResponse.status);
-            continue; // go to the next iteration of the loop
+            continue;
           }
 
           const filesChanged = commitResponse.data.stats;
-          const contributorLogin = commitResponse.data.author?.login; // Use optional chaining in case "author" is not present
+          const contributorLogin = commitResponse.data.author?.login;
 
-          // Update global lines added and deleted
-          setLinesAdded((prev) => prev + filesChanged.additions);
-          setLinesDeleted((prev) => prev + filesChanged.deletions);
+          setLinesAdded(prev => prev + filesChanged.additions);
+          setLinesDeleted(prev => prev + filesChanged.deletions);
 
-          // Update the temporary topContributors array
-          tempTopContributors = tempTopContributors.map((contributor) => {
+          fetchedTopContributors = fetchedTopContributors.map(contributor => {
             if (contributor.login === contributorLogin) {
               return {
                 ...contributor,
-                linesAdded: (contributor.linesAdded || 0) + filesChanged.additions,  // Ensure that linesAdded/linesDeleted has default value
+                linesAdded: (contributor.linesAdded || 0) + filesChanged.additions,
                 linesDeleted: (contributor.linesDeleted || 0) + filesChanged.deletions,
               };
             }
             return contributor;
           });
-
         } catch (innerError) {
           console.error(`Error processing commit ${commit.sha}:`, innerError);
         }
       }
-
-      // Update the state once after all processing
-      setTopContributors(tempTopContributors);
-
+      setTopContributors(fetchedTopContributors);
     } catch (error) {
       console.log('Error fetching commits:', error);
     }
+};
 
-  };
 
-  useEffect(()=>{
-      fetchRepoInfo();
-  },[])
 
   return (
     <>
@@ -213,7 +171,7 @@ const GitRepoInfo: NextPage = () => {
             {[1, 0, 2].map(index => {
               const contributor = topContributors[index] ?? {};
               return (
-                <div key={contributor.login}
+                <div  key={`${index}-${contributor.login}`}
                     className={`flex flex-col items-center justify-center 
                                 ${index === 0 ? 'w-48 h-48' : 'w-40 h-40'} 
                                 mx-6 py-6 rounded-lg shadow-lg relative`}>
