@@ -16,6 +16,18 @@ import OKEENEA from "../images/okeenea-logo.png"
 import PIXELSPACE from "../images/pixelspace-logo.png"
 import RPI from "../images/rensselear-logo.png"
 
+/* FEATURES PAGE */ 
+import ftHeroBG from "../images/Herofeatures.jpg"
+import sAudoFt from "../images/spatialAudio.png"
+import beaconFt from "../images/beaconFeature.png"
+import wayFindingFt from "../images/wayFinding.png"
+import bgAppFt from "../images/bgApp.png"
+import locationFt from "../images/buildings.png"
+import mapFt from "../images/OpenStreetMap.png"
+import ssStreetPrev from "../images/SoundScapeStreetPreview.png"
+import ftFeat1 from "../images/ftPagefeat1.png"
+import ftFeat2 from "../images/ftPagefeat2.png"
+import ftFeat3 from "../images/ftPagefeat3.png"
 
 export const rpiLogo: altImage = {
   src: RPI ,
@@ -88,4 +100,61 @@ export const features2Img: altImage = {
 export const features3Img: altImage = {
   src: feat3,
   alt: "Utilizing Soundscape in various scenarios - on a familiar route, exploring with a friend, and discovering new places, offering flexible usage options.",
+};
+
+/* ------------------------------------------ */
+
+export const ftHeroBGImg: altImage = {
+  src: ftHeroBG,
+  alt: "",
+};
+
+export const sAudoFtImg: altImage = {
+  src: sAudoFt,
+  alt: "",
+};
+
+export const beaconFtImg: altImage = {
+  src: beaconFt,
+  alt: "",
+};
+
+export const wayFindingFtImg: altImage = {
+  src: wayFindingFt,
+  alt: "",
+};
+
+export const bgAppFtImg: altImage = { 
+  src: bgAppFt,
+  alt: "",
+};
+
+export const locationFtImg: altImage = {
+  src: locationFt,  
+  alt: "",
+};
+
+export const mapFtImg: altImage = {
+  src: mapFt,
+  alt: "",
+};
+
+export const ssStreetPrevImg: altImage = { 
+  src: ssStreetPrev,
+  alt: "",
+};
+
+export const ftFeat1Img: altImage = {
+  src: ftFeat1,  
+  alt: "",
+};
+
+export const ftFeat2Img: altImage = {
+  src: ftFeat2,
+  alt: "",
+};
+
+export const ftFeat3Img: altImage = {
+  src: ftFeat3,
+  alt: "",
 };

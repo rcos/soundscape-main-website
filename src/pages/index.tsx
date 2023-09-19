@@ -2,7 +2,8 @@ import { type NextPage } from "next";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import Image from 'next/image'
+import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { api } from "~/utils/api";
 
 import Footer from "@/layout/Footer.component";
@@ -36,9 +37,7 @@ const Home: NextPage = () => {
   //const HeaderLinks: Array<MyLink> = [ { route: 'Privacy Policy', link: "https://ialabs.ie/privacy-policy/" }, { route: 'Home', link: "/" }, { route: 'Features', link: "/" } , { route: 'About', link: "/" } , { route: 'Support', link: "/" } , { route: 'People', link: "/" } , { route: 'News & Features', link: "/" } ];
 
   const HeaderLinks = [ 'Privacy Policy', /*'How to Contribute' /*'Home', 'Features', 'About', 'Support', 'People', 'News & Features'*/];
-  const HeaderHrefs = [ 'https://ialabs.ie/privacy-policy/', '/how-to-contribute' ]
   const [initialRenderComplete, setInitialRenderComplete] = useState(false);
-  const [showNavDropdown, setShowNavDropdown] = useState(false);
 
   useEffect(() => {
    setInitialRenderComplete(true);
@@ -46,10 +45,6 @@ const Home: NextPage = () => {
 
   function handleDonationClick(){
     window.open( "https://www.flipcause.com/secure/cause_pdetails/MTc5NDQ1",'_blank')
-  }
-  
-  function handleDropdownClick(value: boolean) {
-    setShowNavDropdown(value)
   }
 
   return (
@@ -61,7 +56,7 @@ const Home: NextPage = () => {
       </Head>
       <main className="flex min-h-screen w-full flex-col bg-grey-bg mt-header-gap font-poppins overflow-x-hidden">
       {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
-      <MainHeader headerLinks={HeaderLinks} headerHrefs={HeaderHrefs} showNavDropdown = {showNavDropdown} ssLogoImg = {ssLogoImg} handleDropdownClick={handleDropdownClick} notifyPageMissing = {notifyPageMissing}/>
+      <MainHeader headerLinks={HeaderLinks} notifyPageMissing = {notifyPageMissing}/>
       {/* ------------------------------------------------------------------------------------------------------------------------------------------------ */}
         <div className='flex flex-col h-main-hero w-full relative justify-between'>
           <Image className="absolute h-full object-cover z-10
